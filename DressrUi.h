@@ -1,10 +1,23 @@
-#pragma once 
+#ifndef DRESSR_UI_H
+#define DRESSR_UI_H
 
-class DressrUi
+#include <QWidget>
+
+namespace Ui 
 {
-public: 
-    explicit DressrUi();
+	class DressrUi;
+}
+
+class DressrUi : public QWidget
+{
+    Q_OBJECT
+
+public:
+    DressrUi();
     ~DressrUi();
 
-Ui::DressrUi    
-}
+private:
+    Ui::DressrUi* ui;
+};
+
+#endif // DRESSR_UI_H
