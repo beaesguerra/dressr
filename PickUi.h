@@ -21,6 +21,7 @@ public:
     PickUi();
     ~PickUi();
     bool event(QEvent* event);
+    void showOutfit(Outfit anOutfit);
 
 private:
     Ui::PickUi* ui;
@@ -29,7 +30,6 @@ private:
     void handleTouchBegin(QTouchEvent* touch);
     void handleTouchEnd(QTouchEvent* touch);
     void handleTouchUpdate(QTouchEvent* touch);
-    void showOutfit(Outfit anOutfit);
 
 signals:
 	void rejected();
