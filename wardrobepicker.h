@@ -13,12 +13,14 @@ class WardrobePicker
 {
 public:
     WardrobePicker(Closet * closet);
-    Outfit randomizeOutfit();
+    void randomizeOutfit();
     /**
       Returns a ClothingItem with an itemID of -1 if no items of the same type are present
      */
     ClothingItem pickItem(string type);
 //    void addRejectedItem(ClothingItem item);
+
+public slots
 
 private:
 //    vector <unsigned int> m_rejectedItems;
