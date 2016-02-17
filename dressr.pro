@@ -11,27 +11,27 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = dressr
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
-        dressr.cpp \
+        DressrUi.cpp \
         clothingitem.cpp \
         closet.cpp \
         metadatawriter.cpp \
     wardrobepicker.cpp \
     outfit.cpp
 
-HEADERS  += dressr.h \
+HEADERS  += \
+    DressrUi.h \
     metadatawriter.h \
     clothingitem.h \
     closet.h \
     wardrobepicker.h \
     outfit.h
 
-FORMS    += \
-    Add.ui \
-    Closet.ui \
-    Dressr.ui \
-    Pick.ui
+FORMS += \
+    DressrUi.ui \
+    PickUi.ui \
+    ClosetUi.ui \
+    AddUi.ui
 
 CONFIG += mobility
 MOBILITY = 

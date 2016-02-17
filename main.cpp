@@ -1,10 +1,10 @@
-#include "dressr.h"
+#include "DressrUi.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Dressr w;
+    DressrUi w;
     w.show();
 
     return a.exec();
