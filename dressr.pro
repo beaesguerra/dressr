@@ -24,7 +24,8 @@ FORMS    += \
     DressrUi.ui \
     PickUi.ui \
     ClosetUi.ui \
-    AddUi.ui
+    AddUi.ui \
+    AddClothesConfirmationUi.ui
 
 CONFIG += mobility
 MOBILITY = 
