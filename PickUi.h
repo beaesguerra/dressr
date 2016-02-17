@@ -35,7 +35,7 @@ private:
     void handleTouchUpdate(QTouchEvent* touch);
 
 signals:
-	void rejected();
+	void outfitRejected();
 
 };
 
