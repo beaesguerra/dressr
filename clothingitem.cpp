@@ -15,7 +15,7 @@ ClothingItem::ClothingItem()
 ClothingItem::ClothingItem(QImage image, string type)
 {
     m_image = image;
-    m_thumbnail = image.scaled(1080/3 - 20, 1080/3 - 20, Qt::KeepAspectRatio);
+    m_thumbnail = image.scaled(1080/3.3 - 20, 1080/3.3 - 20, Qt::KeepAspectRatio);
     m_type = type;
     m_itemID = m_itemCounter;
     m_itemCounter++;

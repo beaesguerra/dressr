@@ -32,10 +32,12 @@ void ClosetUi::AddClothesToView(ClothingItem someClothing)
     clothingLabel->setPixmap(*clothingImage);
 
     clothesContainerLayout->addWidget(clothingLabel, rowCount, columnCount);
-    rowCount++;
     columnCount++;
     if (columnCount == 3)
+    {
         columnCount = 0;
+        rowCount++;
+    }
 }
 
 ClosetUi::~ClosetUi()

@@ -19,28 +19,108 @@ int main(int argc, char *argv[])
     DressrUi w;
 
     ClosetUi * closetUi= w.getClosetUi();
-    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
-    QString filename = QDir::currentPath().append("/shirt.jpg");
-
-    QImage shirtImage = QImage(filename);
-    ClothingItem shirt = ClothingItem(shirtImage, "shirt");
+//    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
+//    QString filename = QDir::currentPath().append("/shirt.jpg");
 
     Closet closet;
-    closet.addItem(shirt);
-
-
-    QImage shirtImage2 = QImage("/home/bea/Documents/dressr/Resources/shirt.png");
+    QImage shirtImage2 = QImage("/storage/emulated/0/data/shirt.jpg");
     ClothingItem shirt2 = ClothingItem(shirtImage2, "shirt");
-
-
-    closetUi->AddClothesToView(shirt2);
-
-    closetUi->AddClothesToView(shirt);
+    closet.addItem(shirt2);
 
     closetUi->AddClothesToView(shirt2);
-
-    closetUi->AddClothesToView(shirt);
-
+    closetUi->AddClothesToView(shirt2);
+    closetUi->AddClothesToView(shirt2);
+    closetUi->AddClothesToView(shirt2);
+    closetUi->AddClothesToView(shirt2);
+        closetUi->AddClothesToView(shirt2);
+            closetUi->AddClothesToView(shirt2);
+                closetUi->AddClothesToView(shirt2);
+                    closetUi->AddClothesToView(shirt2);
+                        closetUi->AddClothesToView(shirt2);
+                        closetUi->AddClothesToView(shirt2);
+                            closetUi->AddClothesToView(shirt2);
+                                closetUi->AddClothesToView(shirt2);
+                                    closetUi->AddClothesToView(shirt2);
+                                    closetUi->AddClothesToView(shirt2);
+                                    closetUi->AddClothesToView(shirt2);
+                                    closetUi->AddClothesToView(shirt2);
+                                    closetUi->AddClothesToView(shirt2);
+                                    closetUi->AddClothesToView(shirt2);
+                                        closetUi->AddClothesToView(shirt2);
+                                            closetUi->AddClothesToView(shirt2);
+                                                closetUi->AddClothesToView(shirt2);
+                                                    closetUi->AddClothesToView(shirt2);
+                                                        closetUi->AddClothesToView(shirt2);
+                                                            closetUi->AddClothesToView(shirt2);
+                                                                closetUi->AddClothesToView(shirt2);
+                                                                    closetUi->AddClothesToView(shirt2);
+                                                                        closetUi->AddClothesToView(shirt2);
+                                                                        closetUi->AddClothesToView(shirt2);
+                                                                        closetUi->AddClothesToView(shirt2);
+                                                                        closetUi->AddClothesToView(shirt2);
+                                                                            closetUi->AddClothesToView(shirt2);
+                                                                                closetUi->AddClothesToView(shirt2);
+                                                                                    closetUi->AddClothesToView(shirt2);
+                                                                                    closetUi->AddClothesToView(shirt2);
+                                                                                    closetUi->AddClothesToView(shirt2);
+                                                                                    closetUi->AddClothesToView(shirt2);
+                                                                                    closetUi->AddClothesToView(shirt2);
+                                                                                    closetUi->AddClothesToView(shirt2);
+                                                                                        closetUi->AddClothesToView(shirt2);
+                                                                                            closetUi->AddClothesToView(shirt2);
+                                                                                                closetUi->AddClothesToView(shirt2);
+                                                                                                    closetUi->AddClothesToView(shirt2);
+                                                                                                        closetUi->AddClothesToView(shirt2);
+                                                                                                            closetUi->AddClothesToView(shirt2);
+                                                                                                                closetUi->AddClothesToView(shirt2);
+                                                                                                                    closetUi->AddClothesToView(shirt2);
+                                                                                                                        closetUi->AddClothesToView(shirt2);
+                                                                                                                        closetUi->AddClothesToView(shirt2);
+                                                                                                                        closetUi->AddClothesToView(shirt2);
+                                                                                                                        closetUi->AddClothesToView(shirt2);
+                                                                                                                        closetUi->AddClothesToView(shirt2);
+                                                                                                                        closetUi->AddClothesToView(shirt2);
+                                                                                                                            closetUi->AddClothesToView(shirt2);
+                                                                                                                                closetUi->AddClothesToView(shirt2);
+                                                                                                                                    closetUi->AddClothesToView(shirt2);
+                                                                        closetUi->AddClothesToView(shirt2);
+                                                                        closetUi->AddClothesToView(shirt2);
+                                                                        closetUi->AddClothesToView(shirt2);
+                                                                            closetUi->AddClothesToView(shirt2);
+                                                                                closetUi->AddClothesToView(shirt2);
+                                                                                    closetUi->AddClothesToView(shirt2);
+                            closetUi->AddClothesToView(shirt2);
+                                closetUi->AddClothesToView(shirt2);
+                                    closetUi->AddClothesToView(shirt2);
+                                        closetUi->AddClothesToView(shirt2);
+                                        closetUi->AddClothesToView(shirt2);
+                                        closetUi->AddClothesToView(shirt2);
+                                        closetUi->AddClothesToView(shirt2);
+                                        closetUi->AddClothesToView(shirt2);
+                                        closetUi->AddClothesToView(shirt2);
+                                            closetUi->AddClothesToView(shirt2);
+                                                closetUi->AddClothesToView(shirt2);
+                                                    closetUi->AddClothesToView(shirt2);
+                                                        closetUi->AddClothesToView(shirt2);
+                                                            closetUi->AddClothesToView(shirt2);
+                                                                closetUi->AddClothesToView(shirt2);
+                                                                    closetUi->AddClothesToView(shirt2);
+                                                                        closetUi->AddClothesToView(shirt2);
+                                                                            closetUi->AddClothesToView(shirt2);
+                                                                            closetUi->AddClothesToView(shirt2);
+                                                                            closetUi->AddClothesToView(shirt2);
+                                                                            closetUi->AddClothesToView(shirt2);
+                                                                            closetUi->AddClothesToView(shirt2);
+                                                                            closetUi->AddClothesToView(shirt2);
+                                                                                closetUi->AddClothesToView(shirt2);
+                                                                                    closetUi->AddClothesToView(shirt2);
+                                                                                        closetUi->AddClothesToView(shirt2);
+                                                                                            closetUi->AddClothesToView(shirt2);
+                                                                                                closetUi->AddClothesToView(shirt2);
+                                                                                                    closetUi->AddClothesToView(shirt2);
+                                                                                                        closetUi->AddClothesToView(shirt2);
+                                                                                                            closetUi->AddClothesToView(shirt2);
+                                                                                                                closetUi->AddClothesToView(shirt2);
 
     w.show();
 
