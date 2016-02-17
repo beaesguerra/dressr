@@ -4,11 +4,11 @@
 #include <QStandardPaths>
 #include <QString>
 
-unsigned int ClothingItem::m_itemCounter = 0;
+int ClothingItem::m_itemCounter = 0;
 
 ClothingItem::ClothingItem()
 {
-
+    m_itemID = -1;
 }
 
 ClothingItem::ClothingItem(QImage image, string type)
@@ -19,7 +19,7 @@ ClothingItem::ClothingItem(QImage image, string type)
     m_itemCounter++;
 }
 
-unsigned int ClothingItem::getItemID()
+int ClothingItem::getItemID()
 {
     return m_itemID;
 }

@@ -14,10 +14,10 @@ class Closet
 public:
    Closet();
    void addItem(const ClothingItem item);
-   void removeItem(unsigned int itemID);
+   void removeItem(int itemID);
    void addType(const string type);
    void removeType(const string type);
-   ClothingItem getItem(unsigned int itemID);
+   ClothingItem getItem(int itemID);
    vector <ClothingItem> getAll();
    vector <string> getTypes();
    vector <ClothingItem> getAll(const string type);
