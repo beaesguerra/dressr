@@ -20,6 +20,8 @@ DressrUi::DressrUi()
     		this, SLOT(pickTabClicked()));
     connect(ui->closetTab, SIGNAL(clicked()),
     		this, SLOT(closetTabClicked()));
+    connect(ui->addTab, SIGNAL(clicked()),
+            this, SLOT(addTabClicked()));
 }
 
 ClosetUi * DressrUi::getClosetUi()
@@ -39,5 +41,10 @@ void DressrUi::pickTabClicked()
 void DressrUi::closetTabClicked()
 {
 	ui->stackedTabWidget->setCurrentWidget(closetUi);
+}
+
+void DressrUi::addTabClicked()
+{
+    ui->stackedTabWidget->setCurrentWidget(addUi);
 }
 

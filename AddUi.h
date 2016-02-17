@@ -2,6 +2,7 @@
 #define ADDUI_H
 
 #include <QWidget>
+#include <QString>
 
 namespace Ui
 {
@@ -15,6 +16,10 @@ class AddUi : public QWidget
 public:
     AddUi();
     ~AddUi();
+
+public slots:
+    void captureImage();
+    void imageSaved(QString url);
 
 private:
     Ui::AddUi* ui;
