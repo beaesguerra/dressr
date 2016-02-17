@@ -21,7 +21,7 @@ public:
    vector <ClothingItem> getAll();
    vector <string> getTypes();
    vector <ClothingItem> getAll(const string type);
-   void read(QJsonObject jObj);
+   void read(const QJsonObject &jObj);
    void write(QJsonObject & jObj);
 
 private:

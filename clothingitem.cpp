@@ -1,5 +1,7 @@
 #include "clothingitem.h"
 
+#include <QDir>
+#include <QStandardPaths>
 #include <QString>
 
 unsigned int ClothingItem::m_itemCounter = 0;
@@ -32,7 +34,7 @@ QImage ClothingItem::getImage()
     return m_image;
 }
 
-void ClothingItem::read(QJsonObject jObj)
+void ClothingItem::read(const QJsonObject &jObj)
 {
     m_type = jObj["type"].toString().toStdString();
     m_image = QImage(jObj["img"].toString());
@@ -44,8 +46,8 @@ void ClothingItem::write(QJsonObject &jObj)
     jObj["type"] = QString::fromStdString(m_type);
     jObj["id"] = (int) m_itemID;
 
-    // TODO : Potentially make this more robust
-    QString filename = QString::number(m_itemID).append(".png");
+    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
+    QString filename = QDir(stdPath).absoluteFilePath(QString::number(m_itemID).append(".png").prepend("Dressr/"));
     m_image.save(filename);
 
     jObj["img"] = filename;

@@ -2,6 +2,7 @@
 
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QDebug>
 
 
 Closet::Closet()
@@ -56,6 +57,7 @@ ClothingItem Closet::getItem(unsigned int itemID)
     for (unsigned int i = 0; i< m_items.size(); i++)
     {
         temp = m_items.at(i);
+        qDebug() << QString::number(temp.getItemID());
         if(temp.getItemID() == itemID)
         {
             return temp;
@@ -89,7 +91,7 @@ vector <ClothingItem> Closet::getAll(const string type)
     return sameTypes;
 }
 
-void Closet::read(QJsonObject jObj)
+void Closet::read(const QJsonObject &jObj)
 {
     QJsonArray clothes = jObj["Clothes"].toArray();
 

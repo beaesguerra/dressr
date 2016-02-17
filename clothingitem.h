@@ -16,7 +16,7 @@ public:
    unsigned int getItemID();
    string getType();
    QImage getImage();
-   void read(QJsonObject jObj);
+   void read(const QJsonObject &jObj);
    void write(QJsonObject &jObj);
 
 private:
