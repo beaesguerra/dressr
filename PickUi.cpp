@@ -15,13 +15,6 @@ PickUi::PickUi()
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_AcceptTouchEvents);
-
-    ClothingItem pants = ClothingItem(QImage(":/Resources/testpants.jpg"), "pants");
-    ClothingItem shirt = ClothingItem(QImage(":/Resources/testshirt.jpg"), "shirt");
-    std::vector<ClothingItem> clothes;
-    clothes.push_back(shirt);
-    clothes.push_back(pants);
-    showOutfit(Outfit(clothes));  
 }
 
 PickUi::~PickUi()
