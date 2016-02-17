@@ -2,7 +2,7 @@
 #define CLOSET_UI_H
 
 #include <QWidget>
-#include "clothingitem.h";
+#include "clothingitem.h"
 class QGridLayout;
 
 namespace Ui 

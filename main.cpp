@@ -9,6 +9,9 @@
 #include <QPixmap>
 #include <QLayout>
 #include "ClosetUi.h"
+#include <QStandardPaths>
+#include <QDir>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -16,7 +19,12 @@ int main(int argc, char *argv[])
     DressrUi w;
 
     ClosetUi * closetUi= w.getClosetUi();
-    QImage shirtImage = QImage("/home/bea/Documents/dressr/shirt.jpg");
+    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
+    QString filename = QDir::currentPath().append("/shirt.jpg");
+    qDebug() << "FILENAME IS " << filename;
+
+
+    QImage shirtImage = QImage(filename);
     ClothingItem shirt = ClothingItem(shirtImage, "shirt");
     Closet closet;
     closet.addItem(shirt);
