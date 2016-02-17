@@ -23,14 +23,14 @@ public:
 
 private:
     Ui::PickUi* ui;
-    // bool touchStarted;
-    // QPointF touchStart;
+    bool touchStarted;
+    QPointF touchStart;
     void handleTouchBegin(QTouchEvent* touch);
     void handleTouchEnd(QTouchEvent* touch);
     void handleTouchUpdate(QTouchEvent* touch);
 
-// signals:
-// 	void rejected();
+signals:
+	void rejected();
 
 };
 

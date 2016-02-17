@@ -7,11 +7,10 @@
 
 PickUi::PickUi() 
 : ui(new Ui::PickUi)
-// , touchStarted(false)
+, touchStarted(false)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_AcceptTouchEvents);
-	ui->outfitContainer->setStyleSheet("background-color:grey");
 }
 
 PickUi::~PickUi()
@@ -20,7 +19,6 @@ PickUi::~PickUi()
 
 bool PickUi::event(QEvent *event)
 {
-
     if (event->type() == QEvent::TouchBegin){
         handleTouchBegin(static_cast<QTouchEvent*>(event));
     	return true;
@@ -38,33 +36,31 @@ bool PickUi::event(QEvent *event)
 
 void PickUi::handleTouchBegin(QTouchEvent* touch)
 {
-	ui->outfitContainer->setStyleSheet("background-color:green");
     if(touch->touchPoints().isEmpty()){
 		return;
 	} 
 	else{
-//		touchStarted = true;
-//		this->touchStart = touch->touchPoints().first().normalizedPos();
+		touchStarted = true;
+		this->touchStart = touch->touchPoints().first().pos();
 	}
 }
 
 void PickUi::handleTouchEnd(QTouchEvent* touch)
 {
-	ui->outfitContainer->setStyleSheet("background-color:blue");
-	// if(!touchStarted || touch->touchPoints().isEmpty()){
-	// 	return;
-	// }
-	// else {
-	// 	touchStarted = false;
-	// 	QPointF touchDelta = this->touchStart;
-	// 	touchDelta -= touch->touchPoints().first().normalizedPos(); 
-	// 	if(touchDelta.x() < -0.25 && (qAbs(touchDelta.y()) < qAbs(touchDelta.x()))){
-	// 		emit rejected();
-	// 		ui->outfitContainer->setStyleSheet("background-color:green");
-	// 	} else {
-	// 		ui->outfitContainer->setStyleSheet("background-color:blue");
-	// 	}
-	// }
+	if(!touchStarted || touch->touchPoints().isEmpty()){
+		return;
+	}
+	else {
+		touchStarted = false;
+		QPointF touchDelta = this->touchStart;
+		touchDelta -= touch->touchPoints().first().pos();
+		if(touchDelta.x() < -((this->width())/6) && (qAbs(touchDelta.y()) < qAbs(touchDelta.x()))){
+			emit rejected();
+			ui->outfitContainer->setStyleSheet("background-color:green");
+		} else {
+			ui->outfitContainer->setStyleSheet("background-color:red");
+		}
+	}
 }
 
 void PickUi::handleTouchUpdate(QTouchEvent* touch)
