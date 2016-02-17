@@ -8,6 +8,11 @@ ClosetUi::ClosetUi()
     //ui->filters->lineEdit()->setPlaceholderText("Filter by:");
 }
 
+QWidget* ClosetUi::getClothesContainer()
+{
+    return  ui->clothesContainer;
+}
+
 ClosetUi::~ClosetUi()
 {
 }

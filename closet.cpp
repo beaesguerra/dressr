@@ -16,7 +16,7 @@ void Closet::addItem(const ClothingItem item)
     m_items.push_back(item);
 }
 
-void Closet::removeItem(unsigned int itemID)
+void Closet::removeItem(int itemID)
 {
     for (unsigned int i = 0; i < m_items.size(); i++)
     {
@@ -50,7 +50,7 @@ void Closet::removeType(const string type)
 //    }
 }
 
-ClothingItem Closet::getItem(unsigned int itemID)
+ClothingItem Closet::getItem(int itemID)
 {
     ClothingItem temp;
     for (unsigned int i = 0; i< m_items.size(); i++)
@@ -69,6 +69,11 @@ vector <ClothingItem> Closet::getAll()
     return m_items;
 }
 
+vector <string> Closet::getTypes()
+{
+    return m_availableTypes;
+}
+
 vector <ClothingItem> Closet::getAll(const string type)
 {
     vector<ClothingItem> sameTypes;
@@ -84,7 +89,7 @@ vector <ClothingItem> Closet::getAll(const string type)
     return sameTypes;
 }
 
-void Closet::read(QJsonObject jObj)
+void Closet::read(const QJsonObject &jObj)
 {
     QJsonArray clothes = jObj["Clothes"].toArray();
 
@@ -101,7 +106,7 @@ void Closet::write(QJsonObject &jObj)
 {
     QJsonArray clothes;
 
-    for (int i = 0; i < m_items.size(); i++)
+    for (unsigned int i = 0; i < m_items.size(); i++)
     {
         QJsonObject jItem;
         m_items[i].write(jItem);

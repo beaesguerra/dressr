@@ -2,20 +2,28 @@
 #include <string>
 
 // QT Includes
+#include <QDir>
 #include <QFile>
+#include <QIODevice>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QIODevice>
 #include <QtGlobal>
+#include <QStandardPaths>
 
 MetaDataWriter::MetaDataWriter()
 {
 
+    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
+    m_filename = QDir(stdPath).absoluteFilePath("Dressr/dresser.json");
+
+    QString path = QDir(stdPath).absoluteFilePath("Dressr");
+    if (!QDir(path).exists())
+        QDir(path).mkpath(".");
 }
 
-void MetaDataWriter::load(Closet &clst)
+void MetaDataWriter::save(Closet &clst)
 {
-    QFile saveFile("dressr.json");
+    QFile saveFile(m_filename);
     QJsonObject top, jsonClst;
 
     if (!saveFile.open(QIODevice::WriteOnly))
@@ -32,9 +40,9 @@ void MetaDataWriter::load(Closet &clst)
     saveFile.write(saveDoc.toJson());
 }
 
-void MetaDataWriter::save(Closet &clst)
+void MetaDataWriter::load(Closet &clst)
 {
-    QFile loadFile("dressr.json");
+    QFile loadFile(m_filename);
     QJsonObject top;
 
     if (!loadFile.open(QIODevice::ReadOnly))

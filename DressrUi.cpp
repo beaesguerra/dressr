@@ -19,7 +19,10 @@ DressrUi::DressrUi()
     		this, SLOT(closetTabClicked()));
 }
 
-
+ClosetUi * DressrUi::getClosetUi()
+{
+    return closetUi;
+}
 
 DressrUi::~DressrUi()
 {

@@ -14,10 +14,11 @@ class ClosetUi : public QWidget
 
 public:
     ClosetUi();
+    QWidget* getClothesContainer();
     ~ClosetUi();
 
 private:
-    Ui::ClosetUi* ui;
+    Ui::ClosetUi * ui;
 };
 
 #endif // CLOSET_UI_H

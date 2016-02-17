@@ -11,15 +11,17 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = dressr
 TEMPLATE = app
 
-SOURCES += \
-    main.cpp \
-    DressrUi.cpp \
-    PickUi.cpp \
-    ClosetUi.cpp \
-    clothingitem.cpp \
-    closet.cpp \
-    metadatawriter.cpp \
-    AddUi.cpp
+
+SOURCES += main.cpp\
+       DressrUi.cpp \
+       clothingitem.cpp \
+       closet.cpp \
+       metadatawriter.cpp \
+   wardrobepicker.cpp \
+   outfit.cpp \
+   PickUi.cpp \
+   ClosetUi.cpp \
+   AddUi.cpp
 
 HEADERS  += \ 
     DressrUi.h \
@@ -28,7 +30,10 @@ HEADERS  += \
     metadatawriter.h \
     clothingitem.h \
     closet.h \
+    wardrobepicker.h \
+    outfit.h \
     AddUi.h
+
 
 FORMS += \
     DressrUi.ui \

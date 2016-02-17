@@ -17,6 +17,7 @@ class DressrUi : public QWidget
 
 public:
     DressrUi();
+    ClosetUi * getClosetUi();
     ~DressrUi();
 
 public slots:
