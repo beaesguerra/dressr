@@ -4,12 +4,13 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+TEMPLATE = app
+TARGET = dressr
+
+QT       += core gui qml quick multimedia quickwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = dressr
-TEMPLATE = app
 
 SOURCES += main.cpp\
         DressrUi.cpp \
@@ -34,8 +35,11 @@ FORMS += \
     AddUi.ui
 
 CONFIG += mobility
-MOBILITY = 
+MOBILITY =
 
 RESOURCES += \
     resources.qrc
 
+
+# Default rules for deployment.
+include(deployment.pri)

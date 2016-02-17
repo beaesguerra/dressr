@@ -1,10 +1,6 @@
 #include "DressrUi.h"
 #include <QApplication>
 
-#include "closet.h"
-#include "clothingitem.h"
-#include "metadatawriter.h"
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
