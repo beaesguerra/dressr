@@ -17,7 +17,10 @@ SOURCES += main.cpp\
 
 HEADERS  += dressr.h
 
-FORMS    += dressr.ui
+FORMS    += dressr.ui \
+    pick.ui \
+    browse.ui \
+    new.ui
 
 CONFIG += mobility
 MOBILITY = 
