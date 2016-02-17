@@ -10,6 +10,12 @@
     <height>1366</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>Dressr</string>
   </property>
@@ -29,8 +35,17 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <item row="0" column="2">
     <widget class="QLabel" name="dressrLogo">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>1</verstretch>
+      </sizepolicy>
+     </property>
      <property name="font">
       <font>
        <family>Serif</family>
@@ -44,6 +59,7 @@
 	background-color: #35B5D8;
 	color: white;
 	font-weight:bold;
+	border-bottom: 1px solid white;
 }</string>
      </property>
      <property name="text">
@@ -65,7 +81,7 @@
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
        <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
+       <verstretch>1</verstretch>
       </sizepolicy>
      </property>
      <property name="styleSheet">
@@ -97,6 +113,12 @@
       </property>
       <item>
        <widget class="QPushButton" name="pickTab">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="font">
          <font>
           <pointsize>-1</pointsize>
@@ -105,7 +127,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">margin:0px;</string>
+         <string notr="true">border-right: 1px solid white;</string>
         </property>
         <property name="text">
          <string>PICK</string>
@@ -114,6 +136,12 @@
       </item>
       <item>
        <widget class="QPushButton" name="closetTab">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="font">
          <font>
           <pointsize>-1</pointsize>
@@ -131,6 +159,12 @@
       </item>
       <item>
        <widget class="QPushButton" name="addTab">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="font">
          <font>
           <pointsize>-1</pointsize>
@@ -139,7 +173,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">border-left: 1px solid white;</string>
         </property>
         <property name="text">
          <string>ADD</string>
@@ -151,6 +185,12 @@
    </item>
    <item row="3" column="2">
     <widget class="QStackedWidget" name="stackedTabWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>10</verstretch>
+      </sizepolicy>
+     </property>
      <property name="currentIndex">
       <number>-1</number>
      </property>
