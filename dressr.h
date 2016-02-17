@@ -1,6 +1,7 @@
 #ifndef DRESSR_H
 #define DRESSR_H
 
+#include "metadatawriter.h"
 #include <QWidget>
 
 namespace Ui {
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::Dressr *ui;
+    MetaDataWriter mdWriter;
 };
 
 #endif // DRESSR_H

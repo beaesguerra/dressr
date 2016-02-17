@@ -13,9 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        dressr.cpp
+        dressr.cpp \
+    metadatawriter.cpp
 
-HEADERS  += dressr.h
+HEADERS  += dressr.h \
+    metadatawriter.h
 
 FORMS    += dressr.ui
 

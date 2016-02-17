@@ -6,6 +6,9 @@ Dressr::Dressr(QWidget *parent) :
     ui(new Ui::Dressr)
 {
     ui->setupUi(this);
+
+    Closet closet();
+    mdWriter(closet);
 }
 
 Dressr::~Dressr()
