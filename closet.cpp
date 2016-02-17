@@ -2,7 +2,6 @@
 
 #include <QJsonArray>
 #include <QJsonObject>
-#include <QDebug>
 
 
 Closet::Closet()
@@ -57,7 +56,6 @@ ClothingItem Closet::getItem(int itemID)
     for (unsigned int i = 0; i< m_items.size(); i++)
     {
         temp = m_items.at(i);
-        qDebug() << QString::number(temp.getItemID());
         if(temp.getItemID() == itemID)
         {
             return temp;

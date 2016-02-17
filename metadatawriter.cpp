@@ -1,7 +1,6 @@
 #include "metadatawriter.h"
 #include <string>
 
-#include <QDebug>
 // QT Includes
 #include <QDir>
 #include <QFile>
@@ -17,7 +16,6 @@ MetaDataWriter::MetaDataWriter()
     QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
     m_filename = QDir(stdPath).absoluteFilePath("Dressr/dresser.json");
 
-    qDebug() << m_filename;
     QString path = QDir(stdPath).absoluteFilePath("Dressr");
     if (!QDir(path).exists())
         QDir(path).mkpath(".");

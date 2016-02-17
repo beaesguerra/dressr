@@ -9,6 +9,7 @@ int ClothingItem::m_itemCounter = 0;
 ClothingItem::ClothingItem()
 {
     m_itemID = -1;
+    m_itemCounter++;
 }
 
 ClothingItem::ClothingItem(QImage image, string type)
