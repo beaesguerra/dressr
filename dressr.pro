@@ -23,8 +23,15 @@ HEADERS  += dressr.h \
     clothingitem.h \
     closet.h
 
-FORMS    += dressr.ui
+FORMS    += \
+    Add.ui \
+    Closet.ui \
+    Dressr.ui \
+    Pick.ui
 
 CONFIG += mobility
 MOBILITY = 
+
+RESOURCES += \
+    resources.qrc
 
