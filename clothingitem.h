@@ -12,7 +12,7 @@ public:
    ClothingItem(QImage image, string type);
    unsigned int getItemID();
    string getType();
-   string getImage();
+   QImage getImage();
 
 private:
    QImage m_image;

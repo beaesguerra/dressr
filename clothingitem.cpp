@@ -6,8 +6,8 @@ ClothingItem::ClothingItem(QImage image, string type)
 {
     m_image = image;
     m_type = type;
-    m_itemID = ClothingItem.m_itemCounter;
-    ClothingItem.m_itemCounter++;
+    m_itemID = m_itemCounter;
+    m_itemCounter++;
 }
 
 unsigned int ClothingItem::getItemID()
@@ -20,7 +20,7 @@ string ClothingItem::getType()
     return m_type;
 }
 
-string ClothingItem::getImage()
+QImage ClothingItem::getImage()
 {
     return m_image;
 }
