@@ -43,7 +43,7 @@
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
-       <verstretch>3</verstretch>
+       <verstretch>4</verstretch>
       </sizepolicy>
      </property>
      <property name="font">
@@ -81,7 +81,7 @@
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
        <horstretch>0</horstretch>
-       <verstretch>2</verstretch>
+       <verstretch>3</verstretch>
       </sizepolicy>
      </property>
      <property name="styleSheet">
@@ -91,7 +91,7 @@
 	border-radius: 0px;
 	background-color:#19BD96;
 	font-weight: bold;
-	font-size:40px;
+	font-size:60px;
 }
 </string>
      </property>
@@ -189,7 +189,7 @@
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
-       <verstretch>30</verstretch>
+       <verstretch>40</verstretch>
       </sizepolicy>
      </property>
      <property name="currentIndex">
