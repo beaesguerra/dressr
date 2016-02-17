@@ -31,6 +31,12 @@ int main(int argc, char *argv[])
 
     QImage shirtImage2 = QImage("/home/bea/Documents/dressr/Resources/shirt.png");
     ClothingItem shirt2 = ClothingItem(shirtImage2, "shirt");
+
+
+    closetUi->AddClothesToView(shirt2);
+
+    closetUi->AddClothesToView(shirt);
+
     closetUi->AddClothesToView(shirt2);
 
     closetUi->AddClothesToView(shirt);
