@@ -13,13 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += \
-    main.cpp
-    dressr.cpp
-    DressrUi.cpp
+    main.cpp \
+    dressr.cpp 
 
-HEADERS  += 
-    dressr.h
-    DressrUi.h
+HEADERS  += \
+    dressr.h 
 
 FORMS    += \
     Add.ui \
