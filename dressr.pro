@@ -19,8 +19,8 @@ HEADERS  += dressr.h
 
 FORMS    += dressr.ui \
     pick.ui \
-    browse.ui \
-    new.ui
+    add.ui \
+    closet.ui
 
 CONFIG += mobility
 MOBILITY = 
