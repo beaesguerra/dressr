@@ -18,7 +18,8 @@ SOURCES += \
     ClosetUi.cpp \
     clothingitem.cpp \
     closet.cpp \
-    metadatawriter.cpp
+    metadatawriter.cpp \
+    AddUi.cpp
 
 HEADERS  += \ 
     DressrUi.h \
@@ -26,7 +27,8 @@ HEADERS  += \
     ClosetUi.h \
     metadatawriter.h \
     clothingitem.h \
-    closet.h
+    closet.h \
+    AddUi.h
 
 FORMS += \
     DressrUi.ui \
