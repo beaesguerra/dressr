@@ -29,3 +29,13 @@ QImage ClothingItem::getImage()
 {
     return m_image;
 }
+
+void ClothingItem::read(QJsonObject jObj)
+{
+
+}
+
+void ClothingItem::write(QJsonObject &jObj)
+{
+
+}
