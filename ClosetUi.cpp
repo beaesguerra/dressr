@@ -7,6 +7,11 @@ ClosetUi::ClosetUi()
     ui->setupUi(this);
 }
 
+QWidget* ClosetUi::getClothesContainer()
+{
+    return  ui->clothesContainer;
+}
+
 ClosetUi::~ClosetUi()
 {
 }
