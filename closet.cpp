@@ -8,6 +8,23 @@ Closet::Closet()
     m_availableTypes.push_back("Overall");
 }
 
+void Closet::addItem(const ClothingItem item)
+{
+    m_items.push_back(item);
+}
+
+void Closet::removeItem(unsigned int itemID)
+{
+    for (unsigned int i = 0; i < m_items.size(); i++)
+    {
+        if (m_items.at(i).getItemID() == itemID)
+        {
+            m_items.erase(m_items.begin() + i);
+            break;
+        }
+    }
+}
+
 void Closet::addType(const string type)
 {
     if (type.empty())
@@ -33,7 +50,7 @@ void Closet::removeType(const string type)
 ClothingItem Closet::getItem(unsigned int itemID)
 {
     ClothingItem temp;
-    for (int i = 0; i< m_items.size(); i++)
+    for (unsigned int i = 0; i< m_items.size(); i++)
     {
         temp = m_items.at(i);
         if(temp.getItemID() == itemID)
