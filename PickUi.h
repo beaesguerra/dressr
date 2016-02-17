@@ -27,7 +27,6 @@ private:
     QPointF touchStart;
     void handleTouchBegin(QTouchEvent* touch);
     void handleTouchEnd(QTouchEvent* touch);
-    void handleTouchUpdate(QTouchEvent* touch);
 
 signals:
 	void rejected();
