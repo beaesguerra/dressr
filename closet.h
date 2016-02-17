@@ -13,6 +13,8 @@ class Closet
 {
 public:
    Closet();
+   void addItem(const ClothingItem);
+   void removeItem(unsigned int itemID);
    void addType(const string type);
    void removeType(const string type);
    ClothingItem getItem(unsigned int itemID);
