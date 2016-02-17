@@ -9,6 +9,7 @@ using namespace std;
 class ClothingItem
 {
 public:
+   ClothingItem();
    ClothingItem(QImage image, string type);
    unsigned int getItemID();
    string getType();

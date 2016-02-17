@@ -2,6 +2,11 @@
 
 unsigned int ClothingItem::m_itemCounter = 0;
 
+ClothingItem::ClothingItem()
+{
+
+}
+
 ClothingItem::ClothingItem(QImage image, string type)
 {
     m_image = image;
