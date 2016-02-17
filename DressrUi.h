@@ -9,6 +9,7 @@ namespace Ui
 }
 
 class PickUi;
+class ClosetUi;
 
 class DressrUi : public QWidget
 {
@@ -18,9 +19,14 @@ public:
     DressrUi();
     ~DressrUi();
 
+public slots:
+	void pickTabClicked();
+	void closetTabClicked();
+
 private:
     Ui::DressrUi* ui;
     PickUi* pickUi;
+    ClosetUi* closetUi;
 };
 
 #endif // DRESSR_UI_H

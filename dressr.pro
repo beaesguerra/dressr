@@ -14,11 +14,13 @@ TEMPLATE = app
 SOURCES += \
     main.cpp \
     DressrUi.cpp \
-    PickUi.cpp
+    PickUi.cpp \
+    ClosetUi.cpp
 
 HEADERS  += \
     DressrUi.h \
-    PickUi.h  
+    PickUi.h \
+    ClosetUi.h
 
 FORMS    += \
     DressrUi.ui \
