@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>closet</class>
+ <widget class="QWidget" name="closet">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -9,6 +9,12 @@
     <width>720</width>
     <height>1288</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -21,7 +27,19 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" alignment="Qt::AlignTop">
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="filters">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>52</height>
+      </size>
+     </property>
      <property name="font">
       <font>
        <family>KacstPen</family>
@@ -32,13 +50,12 @@
       <string notr="true">border-radius:0px; 
 background-color: orange;
 padding: 10px;
+color: white;
 </string>
      </property>
-     <item>
-      <property name="text">
-       <string>Filter by</string>
-      </property>
-     </item>
+     <property name="currentText">
+      <string notr="true">Tops</string>
+     </property>
      <item>
       <property name="text">
        <string>Tops</string>
@@ -52,7 +69,22 @@ padding: 10px;
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="QWidget" name="widget" native="true">
+    <widget class="QWidget" name="clothesContainer" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
      <layout class="QGridLayout" name="gridLayout_2"/>
     </widget>
    </item>
