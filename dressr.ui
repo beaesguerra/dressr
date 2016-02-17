@@ -31,7 +31,7 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item row="0" column="1">
+   <item row="0" column="2">
     <widget class="QLabel" name="dressr_logo">
      <property name="font">
       <font>
@@ -62,44 +62,47 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QTabWidget" name="tabs">
-     <property name="styleSheet">
-      <string notr="true">background-color: white;</string>
+   <item row="2" column="2">
+    <widget class="QWidget" name="widget_2" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
-     <property name="currentIndex">
-      <number>0</number>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
-     <widget class="QWidget" name="choose">
-      <property name="minimumSize">
-       <size>
-        <width>698</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>698</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <attribute name="title">
-       <string>Choose</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="my_closet">
-      <attribute name="title">
-       <string>My Closet</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="add_clothes">
-      <attribute name="title">
-       <string>Add Clothes</string>
-      </attribute>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>
