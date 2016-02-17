@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QPointF>
+#include "outfit.h"
 
 namespace Ui 
 {
@@ -28,6 +29,7 @@ private:
     void handleTouchBegin(QTouchEvent* touch);
     void handleTouchEnd(QTouchEvent* touch);
     void handleTouchUpdate(QTouchEvent* touch);
+    void showOutfit(Outfit anOutfit);
 
 signals:
 	void rejected();

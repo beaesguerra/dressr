@@ -4,6 +4,10 @@
 #include <QEvent>
 #include <QTouchEvent>
 #include <QDebug>
+#include <QLabel>
+#include <vector>
+
+#include "clothingitem.h"
 
 PickUi::PickUi() 
 : ui(new Ui::PickUi)
@@ -11,6 +15,13 @@ PickUi::PickUi()
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_AcceptTouchEvents);
+
+    ClothingItem pants = ClothingItem(QImage(":/Resources/testpants.jpg"), "pants");
+    ClothingItem shirt = ClothingItem(QImage(":/Resources/testshirt.jpg"), "shirt");
+    std::vector<ClothingItem> clothes;
+    clothes.push_back(shirt);
+    clothes.push_back(pants);
+    showOutfit(Outfit(clothes));  
 }
 
 PickUi::~PickUi()
@@ -66,4 +77,18 @@ void PickUi::handleTouchEnd(QTouchEvent* touch)
 void PickUi::handleTouchUpdate(QTouchEvent* touch)
 {
 
+}
+
+void PickUi::showOutfit(Outfit anOutfit)
+{
+	foreach (ClothingItem clothing, anOutfit.getOutfit()){
+        QPixmap* clothingImage = new QPixmap();
+        clothingImage->convertFromImage(clothing.getImage());
+	
+        QLabel* imageLabel = new QLabel();
+        imageLabel->setAlignment(Qt::AlignCenter);
+        imageLabel->setPixmap(*clothingImage);
+		
+		ui->outfitContainer->layout()->addWidget(imageLabel);	
+	}
 }
