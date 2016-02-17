@@ -21,13 +21,18 @@ QWidget* ClosetUi::getClothesContainer()
     return  ui->clothesContainer;
 }
 
+static int columnCount = 0;
+static int rowCount = 0;    // maybe 1
+
 void ClosetUi::AddClothes(ClothingItem someClothing)
 {
     QPixmap* clothingImage = new QPixmap();
     clothingImage->convertFromImage(someClothing.getThumbnail());
     QLabel* clothingLabel = new QLabel();
     clothingLabel->setPixmap(*clothingImage);
-    clothesContainerLayout->addWidget(clothingLabel, 1, 0);
+
+    clothesContainerLayout->addWidget(clothingLabel, rowCount, columnCount);
+    //if (rowCount )
 }
 
 ClosetUi::~ClosetUi()

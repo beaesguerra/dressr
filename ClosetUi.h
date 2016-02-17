@@ -17,7 +17,7 @@ class ClosetUi : public QWidget
 public:
     ClosetUi();
     QWidget* getClothesContainer();
-    void AddClothes(ClothingItem someClothing);
+    void AddClothesToView(ClothingItem someClothing);
     ~ClosetUi();
 
 private:
