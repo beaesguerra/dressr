@@ -31,11 +31,8 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item row="2" column="1">
-    <widget class="QWidget" name="widget_2" native="true"/>
-   </item>
    <item row="0" column="1">
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="dressr_logo">
      <property name="font">
       <font>
        <family>Serif</family>
@@ -60,13 +57,50 @@
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
+     <property name="margin">
+      <number>10</number>
+     </property>
     </widget>
    </item>
-   <item row="3" column="1">
-    <widget class="QWidget" name="widget" native="true"/>
-   </item>
    <item row="1" column="1">
-    <widget class="QWidget" name="widget_3" native="true"/>
+    <widget class="QTabWidget" name="tabs">
+     <property name="styleSheet">
+      <string notr="true">background-color: white;</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="choose">
+      <property name="minimumSize">
+       <size>
+        <width>698</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>698</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <attribute name="title">
+       <string>Choose</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="my_closet">
+      <attribute name="title">
+       <string>My Closet</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="add_clothes">
+      <attribute name="title">
+       <string>Add Clothes</string>
+      </attribute>
+     </widget>
+    </widget>
    </item>
   </layout>
  </widget>
