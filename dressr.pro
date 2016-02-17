@@ -14,10 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         dressr.cpp \
-    metadatawriter.cpp
+        clothingitem.cpp \
+        closet.cpp \
+        metadatawriter.cpp
 
 HEADERS  += dressr.h \
-    metadatawriter.h
+    metadatawriter.h \
+    clothingitem.h \
+    closet.h
 
 FORMS    += dressr.ui
 
