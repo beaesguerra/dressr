@@ -12,15 +12,20 @@ TARGET = dressr
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        dressr.cpp
+SOURCES += \
+	main.cpp
+    dressr.cpp
+    DressrUi.cpp
 
-HEADERS  += dressr.h
+HEADERS  += 
+	dressr.h
+	DressrUi.h
 
-FORMS    += dressr.ui \
-    pick.ui \
-    add.ui \
-    closet.ui
+FORMS    += \
+    Add.ui \
+    Closet.ui \
+    Dressr.ui \
+    Pick.ui
 
 CONFIG += mobility
 MOBILITY = 
