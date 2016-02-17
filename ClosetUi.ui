@@ -54,18 +54,8 @@ color: white;
 </string>
      </property>
      <property name="currentText">
-      <string notr="true">Tops</string>
+      <string notr="true"/>
      </property>
-     <item>
-      <property name="text">
-       <string>Tops</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Pants</string>
-      </property>
-     </item>
     </widget>
    </item>
    <item>

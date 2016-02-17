@@ -18,8 +18,12 @@ public:
     ClosetUi();
     QWidget* getClothesContainer();
     void AddClothesToView(ClothingItem someClothing);
+    void AddType(QString type);
+    void SetTypes(vector<string> types);
     ~ClosetUi();
-
+public slots:
+    void PickFilterSelected();
+    void FilterSelected();
 private:
 	QGridLayout* clothesContainerLayout;
     Ui::ClosetUi * ui;

@@ -4,7 +4,8 @@
 
 #include <QGridLayout>
 #include <QLabel>
-ClosetUi::ClosetUi() 
+#include <QString>
+ClosetUi::ClosetUi()
 : ui(new Ui::ClosetUi)
 , clothesContainerLayout(new QGridLayout())
 {
@@ -14,6 +15,17 @@ ClosetUi::ClosetUi()
     clothesContainerLayout->setColumnStretch(0, 1);
     clothesContainerLayout->setColumnStretch(1, 1);
     clothesContainerLayout->setColumnStretch(2, 1);  
+
+
+}
+
+void ClosetUi::SetTypes(vector<string> types) {
+    for(unsigned int i = 0; i < types.size(); i++)
+        ui->filters->addItem(QString::fromStdString(types.at(i)));
+}
+
+void ClosetUi::AddType(QString type) {
+       ui->filters->addItem(type);
 }
 
 QWidget* ClosetUi::getClothesContainer()
