@@ -28,9 +28,25 @@
        <pointsize>20</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius:0px; 
+background-color: orange;
+padding: 10px;
+</string>
+     </property>
      <item>
       <property name="text">
        <string>Filter by</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Tops</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Pants</string>
       </property>
      </item>
     </widget>
