@@ -3,15 +3,16 @@
 
 Dressr::Dressr(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Dressr)
+    ui(new Ui::Dressr),
+    closet()
 {
     ui->setupUi(this);
 
-    Closet closet();
-    mdWriter(closet);
+    mdWriter.load(closet);
 }
 
 Dressr::~Dressr()
 {
+    mdWriter.save(closet);
     delete ui;
 }

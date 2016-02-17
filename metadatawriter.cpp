@@ -8,7 +8,12 @@
 #include <QIODevice>
 #include <QtGlobal>
 
-MetaDataWriter::MetaDataWriter(Closet clst)
+MetaDataWriter::MetaDataWriter()
+{
+
+}
+
+void MetaDataWriter::load(Closet &clst)
 {
     QFile saveFile("dressr.json");
     QJsonObject top, jsonClst;
@@ -27,7 +32,7 @@ MetaDataWriter::MetaDataWriter(Closet clst)
     saveFile.write(saveDoc.toJson());
 }
 
-MetaDataWriter::~MetaDataWriter(Closet clst)
+void MetaDataWriter::save(Closet &clst)
 {
     QFile loadFile("dressr.json");
     QJsonObject top;

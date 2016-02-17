@@ -1,6 +1,7 @@
 #ifndef DRESSR_H
 #define DRESSR_H
 
+#include "closet.h"
 #include "metadatawriter.h"
 #include <QWidget>
 
@@ -19,6 +20,7 @@ public:
 private:
     Ui::Dressr *ui;
     MetaDataWriter mdWriter;
+    Closet closet;
 };
 
 #endif // DRESSR_H
