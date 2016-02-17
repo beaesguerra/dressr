@@ -15,6 +15,13 @@ PickUi::PickUi()
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_AcceptTouchEvents);
+
+    ClothingItem pants = ClothingItem(QImage(":/Resources/testpants.jpg"), "pants");
+    ClothingItem shirt = ClothingItem(QImage(":/Resources/testshirt.jpg"), "shirt");
+    std::vector<ClothingItem> clothes;
+    clothes.push_back(shirt);
+    clothes.push_back(pants);
+    showOutfit(Outfit(clothes));  
 }
 
 PickUi::~PickUi()
@@ -60,6 +67,10 @@ void PickUi::handleTouchEnd(QTouchEvent* touch)
 		touchDelta -= touch->touchPoints().first().pos();
 		if(touchDelta.x() < -((this->width())/6) && (qAbs(touchDelta.y()) < qAbs(touchDelta.x()))){
 			emit rejected();
+			foreach(QLabel* clothingImage, currentOutfit){
+				delete clothingImage;
+			}
+			currentOutfit.clear();
 			ui->outfitContainer->setStyleSheet("background-color:green");
 		} else {
 			ui->outfitContainer->setStyleSheet("background-color:red");
@@ -82,6 +93,7 @@ void PickUi::showOutfit(Outfit anOutfit)
         imageLabel->setAlignment(Qt::AlignCenter);
         imageLabel->setPixmap(*clothingImage);
 		
+        currentOutfit.append(imageLabel);
 		ui->outfitContainer->layout()->addWidget(imageLabel);	
 	}
 }
