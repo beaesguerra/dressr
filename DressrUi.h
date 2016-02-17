@@ -8,6 +8,8 @@ namespace Ui
 	class DressrUi;
 }
 
+class PickUi;
+
 class DressrUi : public QWidget
 {
     Q_OBJECT
@@ -18,6 +20,7 @@ public:
 
 private:
     Ui::DressrUi* ui;
+    PickUi* pickUi;
 };
 
 #endif // DRESSR_UI_H

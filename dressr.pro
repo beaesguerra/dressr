@@ -11,13 +11,14 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = dressr
 TEMPLATE = app
 
-
 SOURCES += \
     main.cpp \
-    DressrUi.cpp 
+    DressrUi.cpp \
+    PickUi.cpp
 
 HEADERS  += \
-    DressrUi.h 
+    DressrUi.h \
+    PickUi.h  
 
 FORMS    += \
     DressrUi.ui \
