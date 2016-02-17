@@ -5,6 +5,7 @@ AddUi::AddUi()
 : ui(new Ui::AddUi)
 {
     ui->setupUi(this);
+
 }
 
 AddUi::~AddUi()
