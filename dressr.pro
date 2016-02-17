@@ -14,16 +14,16 @@ TEMPLATE = app
 
 SOURCES += \
     main.cpp \
-    dressr.cpp 
+    DressrUi.cpp 
 
 HEADERS  += \
-    dressr.h 
+    DressrUi.h 
 
 FORMS    += \
-    Add.ui \
-    Closet.ui \
-    Dressr.ui \
-    Pick.ui
+    DressrUi.ui \
+    PickUi.ui \
+    ClosetUi.ui \
+    AddUi.ui
 
 CONFIG += mobility
 MOBILITY = 
