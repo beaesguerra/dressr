@@ -14,12 +14,16 @@ TEMPLATE = app
 SOURCES += \
     main.cpp \
     DressrUi.cpp \
+    PickUi.cpp \
+    ClosetUi.cpp \
     clothingitem.cpp \
     closet.cpp \
     metadatawriter.cpp
 
 HEADERS  += \ 
     DressrUi.h \
+    PickUi.h \
+    ClosetUi.h \
     metadatawriter.h \
     clothingitem.h \
     closet.h
@@ -28,7 +32,8 @@ FORMS += \
     DressrUi.ui \
     PickUi.ui \
     ClosetUi.ui \
-    AddUi.ui
+    AddUi.ui \
+    AddClothesConfirmationUi.ui
 
 CONFIG += mobility
 MOBILITY = 
