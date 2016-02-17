@@ -1,5 +1,6 @@
 #include "clothingitem.h"
 
+unsigned int ClothingItem::m_itemCounter = 0;
 
 ClothingItem::ClothingItem(QImage image, string type)
 {

@@ -1,5 +1,6 @@
 #include <closet.h>
 
+
 Closet::Closet()
 {
     m_availableTypes.push_back("Top"); //initialize default types

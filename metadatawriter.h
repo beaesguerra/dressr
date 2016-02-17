@@ -1,6 +1,7 @@
 #ifndef METADATAWRITER_H
 #define METADATAWRITER_H
 
+#include "closet.h"
 
 class MetaDataWriter
 {

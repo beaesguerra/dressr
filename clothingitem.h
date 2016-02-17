@@ -18,7 +18,7 @@ private:
    QImage m_image;
    string m_type;
    unsigned int m_itemID;
-   static unsigned int m_itemCounter = 0;
+   static unsigned int m_itemCounter;
 };
 
 #endif // CLOTHINGITEM_H
