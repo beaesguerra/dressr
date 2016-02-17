@@ -12,33 +12,43 @@ QT       += core gui qml quick multimedia quickwidgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 
-SOURCES += main.cpp\
-        DressrUi.cpp \
-        clothingitem.cpp \
-        closet.cpp \
-        metadatawriter.cpp \
-    wardrobepicker.cpp \
-    outfit.cpp
 
-HEADERS  += \
+SOURCES += main.cpp\
+       DressrUi.cpp \
+       clothingitem.cpp \
+       closet.cpp \
+       metadatawriter.cpp \
+   wardrobepicker.cpp \
+   outfit.cpp \
+   PickUi.cpp \
+   ClosetUi.cpp \
+   AddUi.cpp
+
+HEADERS  += \ 
     DressrUi.h \
+    PickUi.h \
+    ClosetUi.h \
     metadatawriter.h \
     clothingitem.h \
     closet.h \
     wardrobepicker.h \
-    outfit.h
+    outfit.h \
+    AddUi.h
+
 
 FORMS += \
     DressrUi.ui \
     PickUi.ui \
     ClosetUi.ui \
-    AddUi.ui
+    AddUi.ui \
+    AddClothesConfirmationUi.ui
 
 CONFIG += mobility
 MOBILITY =
 
 RESOURCES += \
-    resources.qrc
+    resources.qrc \
+    qml.qrc
 
 
 # Default rules for deployment.
