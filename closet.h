@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 
+#include <QJsonObject>
+
 using namespace std;
 
 class Closet
@@ -16,6 +18,8 @@ public:
    ClothingItem getItem(unsigned int itemID);
    vector <ClothingItem> getAll();
    vector <ClothingItem> getAll(const string type);
+   void read(QJsonObject jObj);
+   void write(QJsonObject & jObj);
 
 private:
    vector <ClothingItem> m_items;

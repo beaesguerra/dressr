@@ -37,7 +37,7 @@ void MetaDataWriter::save(Closet &clst)
     QFile loadFile("dressr.json");
     QJsonObject top;
 
-    if (!saveFile.open(QIODevice::ReadOnly))
+    if (!loadFile.open(QIODevice::ReadOnly))
     {
         qWarning("dressr.json could not be opened for reading!");
         return;
@@ -47,5 +47,5 @@ void MetaDataWriter::save(Closet &clst)
 
     QJsonDocument loadDoc(QJsonDocument::fromJson(loadData));
     top = loadDoc.object();
-    clst.read(top["Closet"]);
+    clst.read(top["Closet"].toObject());
 }

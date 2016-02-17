@@ -63,3 +63,13 @@ vector <ClothingItem> Closet::getAll(const string type)
     }
     return sameTypes;
 }
+
+void Closet::read(QJsonObject jObj)
+{
+
+}
+
+void Closet::write(QJsonObject &jObj)
+{
+
+}
