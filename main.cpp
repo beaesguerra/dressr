@@ -21,35 +21,20 @@ int main(int argc, char *argv[])
     ClosetUi * closetUi= w.getClosetUi();
     QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
     QString filename = QDir::currentPath().append("/shirt.jpg");
-    qDebug() << "FILENAME IS " << filename;
-
 
     QImage shirtImage = QImage(filename);
     ClothingItem shirt = ClothingItem(shirtImage, "shirt");
+
     Closet closet;
     closet.addItem(shirt);
 
-    closetUi->AddClothes(shirt);
-    /*
-    QPixmap* clothingImage = new QPixmap();
-    clothingImage->convertFromImage(shirt.getImage());
-    QLabel * myLabel = new QLabel();
-    myLabel->setPixmap(*clothingImage);
-    closetUi->getClothesContainer()->layout()->addWidget(myLabel);
 
-    QImage shirtImage2 = QImage("/home/bea/Documents/dressr/shirt.png");
+    QImage shirtImage2 = QImage("/home/bea/Documents/dressr/Resources/shirt.png");
     ClothingItem shirt2 = ClothingItem(shirtImage2, "shirt");
-    closet.addItem(shirt2);
+    closetUi->AddClothesToView(shirt2);
 
-    QPixmap* clothingImage2 = new QPixmap();
-    clothingImage->convertFromImage(shirt2.getImage());
-    QLabel * myLabel2 = new QLabel();
-    myLabel2->setPixmap(*clothingImage2);
+    closetUi->AddClothesToView(shirt);
 
-
-
-   closetUi->getClothesContainer()->layout()->addWidget(myLabel2);
-   */
 
     w.show();
 
