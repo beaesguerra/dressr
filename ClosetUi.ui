@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>closet</class>
- <widget class="QWidget" name="closet">
+ <class>ClosetUi</class>
+ <widget class="QWidget" name="ClosetUi">
   <property name="geometry">
    <rect>
     <x>0</x>
