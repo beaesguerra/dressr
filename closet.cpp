@@ -1,5 +1,8 @@
 #include <closet.h>
 
+#include <QJsonArray>
+#include <QJsonObject>
+
 
 Closet::Closet()
 {
@@ -88,10 +91,26 @@ vector <ClothingItem> Closet::getAll(const string type)
 
 void Closet::read(QJsonObject jObj)
 {
+    QJsonArray clothes = jObj["Clothes"].toArray();
 
+    for (int i = 0; i < clothes.size(); i++)
+    {
+        QJsonObject jItem = clothes[i].toObject();
+        ClothingItem item;
+        item.read(jItem);
+        addItem(item);
+    }
 }
 
 void Closet::write(QJsonObject &jObj)
 {
+    QJsonArray clothes;
 
+    for (int i = 0; i < m_items.size(); i++)
+    {
+        QJsonObject jItem;
+        m_items[i].write(jItem);
+        clothes.append(jItem);
+    }
+    jObj["Clothes"] = clothes;
 }

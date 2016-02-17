@@ -1,0 +1,6 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>Resources/accept.png</file>
+    <file>Resources/reject.png</file>
+</qresource>
+</RCC>

@@ -4,6 +4,8 @@
 #include <QImage>
 #include <string>
 
+#include <QJsonObject>
+
 using namespace std;
 
 class ClothingItem
@@ -14,6 +16,8 @@ public:
    unsigned int getItemID();
    string getType();
    QImage getImage();
+   void read(QJsonObject jObj);
+   void write(QJsonObject &jObj);
 
 private:
    QImage m_image;
