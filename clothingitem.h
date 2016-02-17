@@ -4,10 +4,15 @@
 #include <QImage>
 #include <string>
 
+using namespace std;
+
 class ClothingItem
 {
 public:
    ClothingItem(QImage image, string type);
+   unsigned int getItemID();
+   string getType();
+   string getImage();
 
 private:
    QImage m_image;
