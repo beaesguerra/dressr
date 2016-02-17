@@ -66,6 +66,11 @@ vector <ClothingItem> Closet::getAll()
     return m_items;
 }
 
+vector <string> Closet::getTypes()
+{
+    return m_availableTypes;
+}
+
 vector <ClothingItem> Closet::getAll(const string type)
 {
     vector<ClothingItem> sameTypes;

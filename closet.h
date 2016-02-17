@@ -13,12 +13,13 @@ class Closet
 {
 public:
    Closet();
-   void addItem(const ClothingItem);
+   void addItem(const ClothingItem item);
    void removeItem(unsigned int itemID);
    void addType(const string type);
    void removeType(const string type);
    ClothingItem getItem(unsigned int itemID);
    vector <ClothingItem> getAll();
+   vector <string> getTypes();
    vector <ClothingItem> getAll(const string type);
    void read(QJsonObject jObj);
    void write(QJsonObject & jObj);

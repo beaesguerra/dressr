@@ -16,12 +16,16 @@ SOURCES += main.cpp\
         dressr.cpp \
         clothingitem.cpp \
         closet.cpp \
-        metadatawriter.cpp
+        metadatawriter.cpp \
+    wardrobepicker.cpp \
+    outfit.cpp
 
 HEADERS  += dressr.h \
     metadatawriter.h \
     clothingitem.h \
-    closet.h
+    closet.h \
+    wardrobepicker.h \
+    outfit.h
 
 FORMS    += dressr.ui
 
