@@ -2,6 +2,8 @@
 #define CLOSET_UI_H
 
 #include <QWidget>
+#include "clothingitem.h";
+class QGridLayout;
 
 namespace Ui 
 {
@@ -15,9 +17,11 @@ class ClosetUi : public QWidget
 public:
     ClosetUi();
     QWidget* getClothesContainer();
+    void AddClothes(ClothingItem someClothing);
     ~ClosetUi();
 
 private:
+	QGridLayout* clothesContainerLayout;
     Ui::ClosetUi * ui;
 };
 

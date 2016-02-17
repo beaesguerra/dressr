@@ -21,12 +21,14 @@ int main(int argc, char *argv[])
     Closet closet;
     closet.addItem(shirt);
 
+    closetUi->AddClothes(shirt);
+    /*
     QPixmap* clothingImage = new QPixmap();
     clothingImage->convertFromImage(shirt.getImage());
     QLabel * myLabel = new QLabel();
     myLabel->setPixmap(*clothingImage);
-        closetUi->getClothesContainer()->layout()->addWidget(myLabel);
-/*
+    closetUi->getClothesContainer()->layout()->addWidget(myLabel);
+
     QImage shirtImage2 = QImage("/home/bea/Documents/dressr/shirt.png");
     ClothingItem shirt2 = ClothingItem(shirtImage2, "shirt");
     closet.addItem(shirt2);
@@ -39,8 +41,8 @@ int main(int argc, char *argv[])
 
 
    closetUi->getClothesContainer()->layout()->addWidget(myLabel2);
+   */
 
-*/
     w.show();
 
     return a.exec();

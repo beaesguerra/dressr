@@ -15,6 +15,7 @@ ClothingItem::ClothingItem()
 ClothingItem::ClothingItem(QImage image, string type)
 {
     m_image = image;
+    m_thumbnail = image.scaled(1080/3 - 20, 1080/3 - 20, Qt::KeepAspectRatio);
     m_type = type;
     m_itemID = m_itemCounter;
     m_itemCounter++;
@@ -33,6 +34,11 @@ string ClothingItem::getType()
 QImage ClothingItem::getImage()
 {
     return m_image;
+}
+
+QImage ClothingItem::getThumbnail()
+{
+    return m_thumbnail;
 }
 
 void ClothingItem::read(const QJsonObject &jObj)
