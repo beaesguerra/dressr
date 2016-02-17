@@ -25,3 +25,6 @@ FORMS    += dressr.ui \
 CONFIG += mobility
 MOBILITY = 
 
+RESOURCES += \
+    resources.qrc
+
