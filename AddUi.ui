@@ -47,10 +47,26 @@
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true">outline: 0;</string>
+      <string notr="true">QPushButton{
+	outline: 0; 
+	background-color: orange;
+	border: 10px solid rgb(226, 169, 81);
+	border-radius: 15px;
+	color: white;
+	font-size: 60px;
+	font-weight: bold;
+}
+
+QPushButton:pressed {
+	background-color: rgb(226,169, 81);
+}
+</string>
      </property>
      <property name="text">
-      <string>Capture</string>
+      <string>CAPTURE</string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
