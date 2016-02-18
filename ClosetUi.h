@@ -24,6 +24,7 @@ public:
 
 public slots:
 	void setScrollBar(double dy);
+	void clothingSelected(int itemId);
 
 private:
     Ui::ClosetUi * ui;

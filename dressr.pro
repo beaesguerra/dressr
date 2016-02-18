@@ -22,6 +22,7 @@ SOURCES += main.cpp\
    PickUi.cpp \
    ClosetUi.cpp \
    ClothesContainer.cpp \
+   ClothingThumbnail.cpp \
    AddUi.cpp
 
 HEADERS  += \ 
@@ -29,6 +30,7 @@ HEADERS  += \
     PickUi.h \
     ClosetUi.h \
     ClothesContainer.h \
+    ClothingThumbnail.h \
     metadatawriter.h \
     clothingitem.h \
     closet.h \
