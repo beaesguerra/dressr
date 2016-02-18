@@ -31,7 +31,7 @@ ClosetUi::ClosetUi(Closet * closet)
     clothesContainerLayout->setColumnStretch(0, 1);
     clothesContainerLayout->setColumnStretch(1, 1);
     clothesContainerLayout->setColumnStretch(2, 1);
-    clothesContainerLayout->setAlignment(Qt::AlignTop);
+    clothesContainerLayout->setAlignment(Qt::AlignTop|Qt::AlignHCenter);
     this->closet = closet;
     SetTypes(closet->getTypes());
     connect(ui->filters, SIGNAL(currentIndexChanged(QString)), this, SLOT(FilterSelected(QString)));
