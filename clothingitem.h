@@ -18,6 +18,8 @@ public:
    QImage getImage();
    void read(const QJsonObject &jObj);
    void write(QJsonObject &jObj);
+   void setImage(QImage image);
+   void setThumbnail(QImage image);
 
    QImage getThumbnail();
 

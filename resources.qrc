@@ -4,5 +4,7 @@
         <file>Resources/reject.png</file>
 	    <file>Resources/testshirt.jpg</file>
 	    <file>Resources/testpants.jpg</file>
+	<file>Resources/whiteshirt.png</file>
+	<file>Resources/whitespace.png</file>
 	</qresource>
 </RCC>

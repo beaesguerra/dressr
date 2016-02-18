@@ -10,6 +10,8 @@
 #include "ClothingThumbnail.h"
 #include <QDebug>
 #include <QMessageBox>
+#include <QApplication>
+#include <QScreen>
 
 static int columnCount = 0;
 static int rowCount = 0;
@@ -79,6 +81,22 @@ void ClosetUi::ClearView() {
     columnCount = 0;
 }
 
+void ClosetUi::AddDefaultLayout()
+{
+    QImage * defaultThumbnail = new QImage(":/Resources/whiteshirt.png");
+    ClothingItem * defaultShirt = new ClothingItem();
+    defaultShirt->setThumbnail(*defaultThumbnail);
+    ClothingThumbnail* clothingThumbnail = new ClothingThumbnail(* defaultShirt);
+    clothesContainerLayout->addWidget(clothingThumbnail, 1, 1);
+
+    QImage * whiteSpace = new QImage(":/Resources/whitespace.png");
+    ClothingItem * defaultSpace = new ClothingItem();
+    defaultSpace->setThumbnail(*whiteSpace);
+    ClothingThumbnail* whiteThumbnail = new ClothingThumbnail(* defaultSpace);
+    for (int i = 0; i < 3; i++)
+        clothesContainerLayout->addWidget(whiteThumbnail, 0, i);
+}
+
 void ClosetUi::FilterSelected(QString filter)
 {
     string type = filter.toStdString();
@@ -87,12 +105,16 @@ void ClosetUi::FilterSelected(QString filter)
     if (filter.compare("All") == 0)
     {
         temp = closet->getAll();
+        if (temp.size() == 0)
+            AddDefaultLayout();
         for (unsigned int i = 0; i < temp.size(); i++)
             AddClothesToView(temp.at(i));
     }
     else
     {
         temp = closet->getAll(type);
+        if (temp.size() == 0)
+            AddDefaultLayout();
         for(unsigned int i = 0; i < temp.size(); i++)
             AddClothesToView(temp.at(i));
     }

@@ -25,6 +25,7 @@ public:
     void SetTypes(vector<string> types);
     void AddType(QString type);
     void ClearView();
+    void AddDefaultLayout();
 
 public slots:
     void FilterSelected(QString filter);

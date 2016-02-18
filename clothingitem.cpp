@@ -34,6 +34,18 @@ string ClothingItem::getType()
     return m_type;
 }
 
+void ClothingItem::setImage(QImage image)
+{
+    double screenWidth = QApplication::screens().at(0)->size().width();
+    m_image = image.scaled(screenWidth/2, screenWidth/2, Qt::KeepAspectRatio);
+}
+
+void ClothingItem::setThumbnail(QImage image)
+{
+    double screenWidth = QApplication::screens().at(0)->size().width();
+    m_thumbnail = image.scaled(screenWidth/3.3 - 20, screenWidth/3.3 - 20, Qt::KeepAspectRatio);
+}
+
 QImage ClothingItem::getImage()
 {
     return m_image;
