@@ -9,10 +9,12 @@ Outfit WardrobePicker::randomizeOutfit()
 {
     vector <string> allTypes = m_closet->getTypes();
     vector <ClothingItem> outfit;
-    for(unsigned int i = 0; i < allTypes.size(); i++)
-    {
-        outfit.push_back(pickItem(allTypes.at(i)));
-    }
+//    for(unsigned int i = 0; i < allTypes.size(); i++)
+//    {
+//        outfit.push_back(pickItem(allTypes.at(i)));
+//    }
+    outfit.push_back(pickItem("Top")); //currently supports only picking top and bottom
+    outfit.push_back(pickItem("Bottom"));
     return Outfit(outfit);
 }
 
