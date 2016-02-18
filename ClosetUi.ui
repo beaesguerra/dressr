@@ -26,6 +26,21 @@
    <string notr="true">background-color: white;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QComboBox" name="filters">
      <property name="sizePolicy">
@@ -37,21 +52,29 @@
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>52</height>
+       <height>0</height>
       </size>
      </property>
      <property name="font">
       <font>
-       <family>KacstPen</family>
-       <pointsize>20</pointsize>
+       <pointsize>28</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-radius:0px; 
-background-color: orange;
-padding: 10px;
-color: white;
-</string>
+      <string notr="true">* {
+	border-radius:0px; 
+	background-color: orange;	
+	padding: 10px 10px;
+	color: white;
+}
+
+QComboBox::down-arrow{
+	image: none;
+}
+
+QComboBox::drop-down {
+	border: none;
+}</string>
      </property>
      <property name="currentText">
       <string notr="true">Tops</string>
@@ -71,7 +94,7 @@ color: white;
    <item>
     <widget class="QScrollArea" name="scrollArea">
      <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAsNeeded</enum>
+      <enum>Qt::ScrollBarAlwaysOff</enum>
      </property>
      <property name="horizontalScrollBarPolicy">
       <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -87,8 +110,8 @@ color: white;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>700</width>
-        <height>1210</height>
+        <width>718</width>
+        <height>1213</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2"/>
