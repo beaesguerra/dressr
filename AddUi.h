@@ -21,6 +21,9 @@ public slots:
     void captureImage();
     void imageSaved(QString url);
 
+signals:
+    void imageTaken(QString path);
+
 private:
     Ui::AddUi* ui;
 };

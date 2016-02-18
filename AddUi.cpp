@@ -30,8 +30,6 @@ AddUi::AddUi()
 
     connect(item, SIGNAL(captured(QString)),
             this, SLOT(imageSaved(QString)));
-
-//    ui->quickWidget->show();
 }
 
 AddUi::~AddUi()
@@ -39,11 +37,11 @@ AddUi::~AddUi()
 }
 
 void AddUi::captureImage() {
-    qDebug() << "Calling capture image";
     ui->quickWidget->rootObject()->setProperty("readyToCapture", 1);
 }
 
 void AddUi::imageSaved(QString url)
 {
     qDebug() << url;
+    emit imageTaken(url);
 }

@@ -1,6 +1,7 @@
 #ifndef DRESSR_UI_H
 #define DRESSR_UI_H
 
+#include <QString>
 #include <QWidget>
 
 namespace Ui 
@@ -11,6 +12,7 @@ namespace Ui
 class PickUi;
 class ClosetUi;
 class AddUi;
+class AddClothesConfirmationUi;
 
 class DressrUi : public QWidget
 {
@@ -25,12 +27,14 @@ public slots:
 	void pickTabClicked();
 	void closetTabClicked();
     void addTabClicked();
+    void confirmClothes(QString path);
 
 private:
     Ui::DressrUi* ui;
     PickUi* pickUi;
     ClosetUi* closetUi;
     AddUi* addUi;
+    AddClothesConfirmationUi* addClothesConfirmation;
 };
 
 #endif // DRESSR_UI_H

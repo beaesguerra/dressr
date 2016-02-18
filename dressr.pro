@@ -22,7 +22,8 @@ SOURCES += main.cpp\
    outfit.cpp \
    PickUi.cpp \
    ClosetUi.cpp \
-   AddUi.cpp
+   AddUi.cpp \
+    addClothesConfirmationUi.cpp
 
 HEADERS  += \ 
     DressrUi.h \
@@ -33,7 +34,8 @@ HEADERS  += \
     closet.h \
     wardrobepicker.h \
     outfit.h \
-    AddUi.h
+    AddUi.h \
+    addClothesConfirmationUi.h
 
 
 FORMS += \
