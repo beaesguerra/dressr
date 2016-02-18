@@ -72,8 +72,14 @@ void AddClothesConfirmationUi::getImage(QString path)
 
     QTransform transform;
     transform.rotate(rotation);
+    QImage rotImage = img.transformed(transform);
 
-    m_image = img.scaled(QSize(933, 700), Qt::KeepAspectRatioByExpanding).transformed(transform).copy(0, 116.5, 700, 716.5);
+    QSize finalSize = ui->clothesItem->size();
+    double fw = (double) finalSize.width();
+    QSize expandedSize = QSize(fw, (fw / rotImage.width()) * rotImage.height());
+    int x = (expandedSize.height() - fw) / 2;
+
+    m_image = rotImage.scaled(expandedSize, Qt::KeepAspectRatioByExpanding).copy(0, x, fw, fw);
     QFile::remove(path);
 }
 
