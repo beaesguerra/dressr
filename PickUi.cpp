@@ -4,6 +4,10 @@
 #include <QEvent>
 #include <QTouchEvent>
 #include <QDebug>
+#include <QLabel>
+#include <vector>
+
+#include "clothingitem.h"
 
 PickUi::PickUi() 
 : ui(new Ui::PickUi)
@@ -51,10 +55,29 @@ void PickUi::handleTouchEnd(QTouchEvent* touch)
 		QPointF touchDelta = this->touchStart;
 		touchDelta -= touch->touchPoints().first().pos();
 		if(touchDelta.x() < -((this->width())/6) && (qAbs(touchDelta.y()) < qAbs(touchDelta.x()))){
-			emit rejected();
+			emit outfitRejected();
+			foreach(QLabel* clothingImage, currentOutfit){
+				delete clothingImage;
+			}
+			currentOutfit.clear();
 			ui->outfitContainer->setStyleSheet("background-color:green");
 		} else {
 			ui->outfitContainer->setStyleSheet("background-color:red");
 		}
+	}
+}
+
+void PickUi::showOutfit(Outfit anOutfit)
+{
+	foreach (ClothingItem clothing, anOutfit.getOutfit()){
+        QPixmap* clothingImage = new QPixmap();
+        clothingImage->convertFromImage(clothing.getImage());
+	
+        QLabel* imageLabel = new QLabel();
+        imageLabel->setAlignment(Qt::AlignCenter);
+        imageLabel->setPixmap(*clothingImage);
+		
+        currentOutfit.append(imageLabel);
+		ui->outfitContainer->layout()->addWidget(imageLabel);	
 	}
 }
