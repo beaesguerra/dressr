@@ -7,11 +7,17 @@
 #include <QImageReader>
 #include <QImageIOHandler>
 #include <QTransform>
+#include <QApplication>
+#include <QScreen>
 
 AddClothesConfirmationUi::AddClothesConfirmationUi()
     : ui(new Ui::AddClothesConfirmationUi)
 {
     ui->setupUi(this);
+    double screenWidth = QApplication::screens().at(0)->size().width();
+
+    ui->confirmButton->setIconSize(QSize(screenWidth/4.2, screenWidth/4));
+    ui->denyButton->setIconSize(QSize(screenWidth/4.2, screenWidth/4));
 
     connect(ui->confirmButton, SIGNAL(clicked()),
             this, SLOT(itemConfirmed()));
