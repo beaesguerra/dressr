@@ -2,11 +2,15 @@
 #include <QPixmap>
 #include <QEvent>
 
-ClothingThumbnail::ClothingThumbnail(ClothingItem someClothing, bool acceptTouchEvents)
+ClothingThumbnail::ClothingThumbnail(ClothingItem someClothing, bool acceptTouchEvents, bool thumbnail)
 : itemId(someClothing.getItemID())
 {
     QPixmap* clothingImage = new QPixmap();
-    clothingImage->convertFromImage(someClothing.getThumbnail());
+    if(thumbnail){
+        clothingImage->convertFromImage(someClothing.getThumbnail());
+    } else {
+        clothingImage->convertFromImage(someClothing.getImage());        
+    }
     this->setPixmap(*clothingImage);
     if(acceptTouchEvents){
         setAttribute(Qt::WA_AcceptTouchEvents);

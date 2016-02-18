@@ -85,8 +85,8 @@ void ClosetUi::AddDefaultLayout()
 {
     QImage * defaultThumbnail = new QImage(":/Resources/whiteshirt.png");
     ClothingItem * defaultShirt = new ClothingItem();
-    defaultShirt->setThumbnail(*defaultThumbnail);
-    ClothingThumbnail* clothingThumbnail = new ClothingThumbnail(*defaultShirt, false);
+    defaultShirt->setImage(*defaultThumbnail);
+    ClothingThumbnail* clothingThumbnail = new ClothingThumbnail(*defaultShirt, false, false);
     clothingThumbnail->setStyleSheet("background-color: none; border: none;");
     clothesContainerLayout->addWidget(clothingThumbnail, 1, 1);
 
