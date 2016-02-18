@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
     PickUi * pickUi = new PickUi();
     Closet * closet = new Closet();
     ClosetUi * closetUi = new ClosetUi(closet);
+    QWidget::connect(closetUi, SIGNAL(clothingSelected(int)), closet, SLOT(removeItem(int)));
     DressrUi * w = new DressrUi(pickUi, closetUi);
 
 //    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
@@ -39,6 +40,8 @@ int main(int argc, char *argv[])
         closet->addItem(shirt1);
         closet->addItem(pants1);
         closet->addItem(shirt3);
+        closetUi->FilterSelected("All");
+
     }
 
     w->show();

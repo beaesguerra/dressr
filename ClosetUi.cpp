@@ -32,7 +32,6 @@ ClosetUi::ClosetUi(Closet * closet)
     this->closet = closet;
     SetTypes(closet->getTypes());
     connect(ui->filters, SIGNAL(currentIndexChanged(QString)), this, SLOT(FilterSelected(QString)));
-    FilterSelected(QString::fromStdString("All"));
 }
 
 ClosetUi::~ClosetUi()
@@ -55,8 +54,8 @@ void ClosetUi::AddClothesToView(ClothingItem someClothing)
 {
     ClothingThumbnail* clothingThumbnail = new ClothingThumbnail(someClothing);
 
-    connect(clothingThumbnail, SIGNAL(clothingSelected(int)), this, SLOT(clothingSelected(int)));
-    qDebug() << "ADDING SOME CLOTHES";
+    connect(clothingThumbnail, SIGNAL(clothingSelected(int)), this, SIGNAL(clothingSelected(int)));
+    connect(clothingThumbnail, SIGNAL(clothingSelected(int)), this, SLOT(FilterSelected()));
     clothesContainerLayout->addWidget(clothingThumbnail, rowCount, columnCount);
     columnCount++;
     if (columnCount == 3)
@@ -97,13 +96,14 @@ void ClosetUi::FilterSelected(QString filter)
     }
 }
 
+void ClosetUi::FilterSelected()
+{
+    QString filter = ui->filters->currentText();
+    FilterSelected(filter);
+}
+    
 void ClosetUi::setScrollBar(double dy)
 {  
     QScrollBar* scrollBar = ui->scrollArea->verticalScrollBar();
     scrollBar->setValue(scrollBar->value() + dy);
-}
-
-void ClosetUi::clothingSelected(int itemId)
-{
-    qDebug() << "SELECTED " << itemId;    
 }

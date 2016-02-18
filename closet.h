@@ -4,17 +4,18 @@
 #include "clothingitem.h"
 #include <vector>
 #include <string>
+#include <QWidget>
 
 #include <QJsonObject>
 
 using namespace std;
 
-class Closet
+class Closet : public QWidget
 {
+   Q_OBJECT
 public:
    Closet();
    void addItem(const ClothingItem item);
-   void removeItem(int itemID);
    void addType(const string type);
    void removeType(const string type);
    ClothingItem getItem(int itemID);
@@ -23,6 +24,9 @@ public:
    vector <ClothingItem> getAll(const string type);
    void read(const QJsonObject &jObj);
    void write(QJsonObject & jObj);
+
+public slots:
+   void removeItem(int itemID);
 
 private:
    vector <ClothingItem> m_items;
