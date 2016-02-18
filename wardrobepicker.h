@@ -13,7 +13,7 @@ using namespace std;
 class WardrobePicker
 {
 public:
-    WardrobePicker(Closet * closet);
+    WardrobePicker(Closet * closet, PickUi * pickUi);
     void randomizeOutfit();
     /**
       Returns a ClothingItem with an itemID of -1 if no items of the same type are present
