@@ -20,6 +20,12 @@ void WardrobePicker::randomizeOutfit()
     m_pickUi->showOutfit(outfit);
 }
 
+void WardrobePicker::checkIfNoClothesOfType(ClothingItem item)
+{
+    if (m_closet->getAll(item.getType()).size() == 1)
+        randomizeOutfit();
+}
+
 ClothingItem WardrobePicker::pickItem(const string type)
 {
     unsigned int size = m_closet->getAll().size();
