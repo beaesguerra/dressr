@@ -29,6 +29,7 @@ private:
     bool touchStarted;
     QPointF touchStart;
     QList<QLabel*> currentOutfit;
+    void clearView();
 
     void handleTouchBegin(QTouchEvent* touch);
     void handleTouchEnd(QTouchEvent* touch);
