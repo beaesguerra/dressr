@@ -64,6 +64,15 @@ void ClosetUi::AddClothesToView(ClothingItem someClothing)
         rowCount++;
     }
 }
+void ClosetUi::ClearView() {
+    while( clothesContainerLayout->count() ) {
+        QWidget* widget = clothesContainerLayout->itemAt(0)->widget();
+        if( widget ) {
+            clothesContainerLayout->removeWidget(widget);
+            delete widget;
+        }
+    }
+}
 
 void ClosetUi::handleTouchBegin(QTouchEvent* touch)
 {

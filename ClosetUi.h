@@ -20,6 +20,7 @@ public:
     ClosetUi();
     QWidget* getClothesContainer();
     void AddClothesToView(ClothingItem someClothing);
+    void ClearView();
     bool event(QEvent* event);
     ~ClosetUi();
 
