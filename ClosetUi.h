@@ -10,6 +10,8 @@ namespace Ui
 	class ClosetUi;
 }
 
+class QTouchEvent; 
+
 class ClosetUi : public QWidget
 {
     Q_OBJECT
@@ -20,13 +22,20 @@ public:
     void AddClothesToView(ClothingItem someClothing);
     void AddType(QString type);
     void SetTypes(vector<string> types);
+    bool event(QEvent* event);
     ~ClosetUi();
 public slots:
     void PickFilterSelected();
     void FilterSelected();
 private:
-	QGridLayout* clothesContainerLayout;
     Ui::ClosetUi * ui;
+	QGridLayout* clothesContainerLayout;
+    bool touchStarted;
+    QPointF touchStart;
+
+    void handleTouchBegin(QTouchEvent* touch);
+    void handleTouchEnd(QTouchEvent* touch);
+    void handleTouchUpdate(QTouchEvent* touch);
 };
 
 #endif // CLOSET_UI_H

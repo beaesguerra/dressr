@@ -27,10 +27,6 @@ bool PickUi::event(QEvent *event)
         handleTouchEnd(static_cast<QTouchEvent*>(event));
     	return true;
     }
-    else if (event->type() == QEvent::TouchUpdate){
-        handleTouchUpdate(static_cast<QTouchEvent*>(event));
-    	return true;
-    }
     return QWidget::event(event);
 }
 
@@ -61,9 +57,4 @@ void PickUi::handleTouchEnd(QTouchEvent* touch)
 			ui->outfitContainer->setStyleSheet("background-color:red");
 		}
 	}
-}
-
-void PickUi::handleTouchUpdate(QTouchEvent* touch)
-{
-
 }

@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     DressrUi w;
 
-    ClosetUi * closetUi= w.getClosetUi();
+    ClosetUi * closetUi = w.getClosetUi();
 //    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
 //    QString filename = QDir::currentPath().append("/shirt.jpg");
 
