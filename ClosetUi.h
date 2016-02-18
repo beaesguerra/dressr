@@ -20,8 +20,13 @@ public:
     ClosetUi();
     QWidget* getClothesContainer();
     void AddClothesToView(ClothingItem someClothing);
+    void SetTypes(vector<string> types);
+    void AddType(QString type);
     bool event(QEvent* event);
     ~ClosetUi();
+
+public slots:
+    void FilterSelected(QString filter);
 
 private:
     Ui::ClosetUi * ui;

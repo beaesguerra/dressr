@@ -21,10 +21,27 @@ ClosetUi::ClosetUi()
     clothesContainerLayout->setColumnStretch(0, 1);
     clothesContainerLayout->setColumnStretch(1, 1);
     clothesContainerLayout->setColumnStretch(2, 1);
+    connect(ui->filters, SIGNAL(currentIndex(QString), SLOT(filterSelected(QString)); //TODO
+
 }
 
 ClosetUi::~ClosetUi()
 {
+}
+
+void ClosetUi::FilterSelected(QString filter)
+{
+    filter.toStdString();
+}
+
+void ClosetUi::SetTypes(vector<string> types) {
+    for(unsigned int i = 0; i < types.size(); i++)
+        ui->filters->addItem(QString::fromStdString(types.at(i)));
+}
+
+void ClosetUi::AddType(QString type) { //TODO
+       ui->filters->addItem(type);
+    clothesContainerLayout->setColumnStretch(2, 1);
 }
 
 bool ClosetUi::event(QEvent *event)
