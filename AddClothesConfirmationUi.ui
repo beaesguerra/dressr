@@ -206,7 +206,8 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: green;</string>
+         <string notr="true">background-color:red;
+color: green;</string>
         </property>
         <property name="text">
          <string> ✔</string>

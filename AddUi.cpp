@@ -15,6 +15,8 @@ AddUi::AddUi()
 
     ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/dressrCamera.qml")));
     QQuickItem *item = ui->quickWidget->rootObject();
+    ui->quickWidget->setMinimumHeight(ui->quickWidget->width());
+    qDebug() << ui->quickWidget->width();
 
     // Add path for camera to save files
     QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
