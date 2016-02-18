@@ -1,16 +1,19 @@
 #include "wardrobepicker.h"
 
-WardrobePicker::WardrobePicker(Closet * closet, PickUi* pickUi)
+WardrobePicker::WardrobePicker(Closet * closet, PickUi* pickUi, ClosetUi* closetUi)
     : m_closet(closet)
     , m_pickUi(pickUi)
+    , m_closetUi(closetUi)
 {
     connect(pickUi, SIGNAL(outfitRejected()), this, SLOT(randomizeOutfit()));
+       connect(closetUi, SIGNAL(deleteClothing()), this, SLOT(randomizeOutfit()));
 }
 
 void WardrobePicker::randomizeOutfit()
 {
     vector <string> allTypes = m_closet->getTypes();
     vector <ClothingItem> outfit;
+    outfit.clear();
 //    for(unsigned int i = 0; i < allTypes.size(); i++)
 //    {
 //        outfit.push_back(pickItem(allTypes.at(i)));

@@ -15,6 +15,9 @@ PickUi::PickUi()
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_AcceptTouchEvents);
+
+
+
 }
 
 PickUi::~PickUi()
@@ -66,6 +69,7 @@ void PickUi::handleTouchEnd(QTouchEvent* touch)
 
 void PickUi::showOutfit(Outfit anOutfit)
 {
+    clearView();
 	foreach (ClothingItem clothing, anOutfit.getOutfit()){
         QPixmap* clothingImage = new QPixmap();
         clothingImage->convertFromImage(clothing.getThumbnail());
@@ -77,4 +81,10 @@ void PickUi::showOutfit(Outfit anOutfit)
         currentOutfit.append(imageLabel);
 		ui->outfitContainer->layout()->addWidget(imageLabel);	
 	}
+}
+
+void PickUi::clearView() {
+    foreach(QLabel* clothingImage, currentOutfit){
+        delete clothingImage;
+    }
 }

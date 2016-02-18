@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     ClosetUi * closetUi = new ClosetUi(closet);
     QWidget::connect(closetUi, SIGNAL(deleteClothing(int)), closet, SLOT(removeItem(int)));
     DressrUi * w = new DressrUi(pickUi, closetUi, addUi, addClothesConfirmationUi);
-    WardrobePicker * picker = new WardrobePicker(closet, pickUi);
+    WardrobePicker * picker = new WardrobePicker(closet, pickUi, closetUi);
 
     QWidget::connect(addClothesConfirmationUi, SIGNAL(confirmItem(ClothingItem)),
                      closet, SLOT(addItem(ClothingItem)));

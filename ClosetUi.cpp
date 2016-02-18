@@ -33,6 +33,7 @@ ClosetUi::ClosetUi(Closet * closet)
     this->closet = closet;
     SetTypes(closet->getTypes());
     connect(ui->filters, SIGNAL(currentIndexChanged(QString)), this, SLOT(FilterSelected(QString)));
+
 }
 
 ClosetUi::~ClosetUi()
@@ -115,5 +116,7 @@ void ClosetUi::clothingSelected(int itemId)
     reply = QMessageBox::question(this, "Delete Item", "Are you sure?", QMessageBox::Yes|QMessageBox::No);
     if (reply == QMessageBox::Yes) {
         emit deleteClothing(itemId);
+        // TODO clear screen
+        emit deleteClothing();
     } 
 }
