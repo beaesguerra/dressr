@@ -66,6 +66,5 @@ void DressrUi::confirmClothes(QString path)
 {
     qDebug() << path;
     ui->stackedTabWidget->setCurrentWidget(addClothesConfirmation);
-//    addClothesConfirmation->setImage(path);
 }
 

@@ -1,6 +1,7 @@
 #ifndef ADDCLOTHESCONFIRMATIONUI_H
 #define ADDCLOTHESCONFIRMATIONUI_H
 
+#include <QImage>
 #include <QString>
 #include <QWidget>
 
@@ -26,7 +27,10 @@ public slots:
     void itemRejected();
 
 private:
+    void getImage(QString path);
+
     Ui::AddClothesConfirmationUi* ui;
+    QImage m_image;
 };
 
 #endif // ADDCLOTHESCONFIRMATIONUI_H

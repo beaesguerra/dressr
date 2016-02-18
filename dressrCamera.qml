@@ -25,12 +25,12 @@ Rectangle {
         //height: parent.height
 
         videoRecorder {
-             resolution: "700x700"
+             resolution: "640x480"
              frameRate: 30
         }
 
         imageCapture {
-            resolution: "700x700"
+            resolution: "640x480"
 //            capturedImagePath: imgPath
             onImageSaved: {
                 rect.captured(path);
