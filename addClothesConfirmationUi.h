@@ -1,6 +1,8 @@
 #ifndef ADDCLOTHESCONFIRMATIONUI_H
 #define ADDCLOTHESCONFIRMATIONUI_H
 
+#include "clothingitem.h"
+
 #include <QImage>
 #include <QString>
 #include <QWidget>
@@ -19,7 +21,7 @@ public:
 
 signals:
     void rejectItem();
-    void confirmItem();
+    void confirmItem(ClothingItem);
 
 public slots:
     void setImage(QString path);

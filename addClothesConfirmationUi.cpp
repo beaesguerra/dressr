@@ -23,8 +23,9 @@ AddClothesConfirmationUi::~AddClothesConfirmationUi()
 
 void AddClothesConfirmationUi::itemConfirmed()
 {
+    ClothingItem item(m_image, ui->comboBox->currentText().toStdString());
 
-    emit confirmItem();
+    emit confirmItem(item);
 }
 
 void AddClothesConfirmationUi::itemRejected()
