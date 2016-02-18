@@ -26,9 +26,9 @@ public:
     void AddType(QString type);
     void ClearView();
 
-public slots:
     void FilterSelected(QString filter);
     void setScrollBar(double dy);
+	void clothingSelected(int itemId);
 
 private:
     Ui::ClosetUi * ui;

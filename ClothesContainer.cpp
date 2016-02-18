@@ -18,14 +18,17 @@ ClothesContainer::~ClothesContainer()
 bool ClothesContainer::event(QEvent *event)
 {
     if (event->type() == QEvent::TouchBegin) {
+        // setStyleSheet("background-color: grey");
         handleTouchBegin(static_cast<QTouchEvent*>(event));
         return true;
     }
     else if (event->type() == QEvent::TouchEnd) {
+        // setStyleSheet("background-color: blue");
         handleTouchEnd(static_cast<QTouchEvent*>(event));
         return true;
     }
     else if (event->type() == QEvent::TouchUpdate) {
+        // setStyleSheet("background-color: pink");
         handleTouchUpdate(static_cast<QTouchEvent*>(event));
         return true;
     }

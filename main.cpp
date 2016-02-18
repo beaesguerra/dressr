@@ -31,20 +31,16 @@ int main(int argc, char *argv[])
         ClothingItem shirt1 = ClothingItem(shirtImage1, "Top");
 
         QImage shirtImage2 = QImage("/storage/emulated/0/data/testpants.jpg");
-        ClothingItem shirt2 = ClothingItem(shirtImage2, "Bottom");
+        ClothingItem pants1 = ClothingItem(shirtImage2, "Bottom");
 
         QImage shirtImage3 = QImage("/storage/emulated/0/data/shirt.png");
         ClothingItem shirt3 = ClothingItem(shirtImage3, "Top");
 
         closet->addItem(shirt1);
-        closet->addItem(shirt2);
+        closet->addItem(pants1);
         closet->addItem(shirt3);
     }
-    closetUi->SetTypes(closet->getTypes());
 
-    //for(int i = 0; i < 50; i++){
-    //    closetUi->AddClothesToView(shirt2);
-    //}
     w->show();
 
     return a.exec();

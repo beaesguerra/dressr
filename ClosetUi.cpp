@@ -7,6 +7,7 @@
 #include <QTouchEvent>
 #include <QScrollBar>
 #include "ClothesContainer.h"
+#include "ClothingThumbnail.h"
 #include <QDebug>
 
 static int columnCount = 0;
@@ -52,12 +53,11 @@ void ClosetUi::AddType(QString type) { //TODO
 
 void ClosetUi::AddClothesToView(ClothingItem someClothing)
 {
-    QPixmap* clothingImage = new QPixmap();
-    clothingImage->convertFromImage(someClothing.getThumbnail());
-    QLabel* clothingLabel = new QLabel();
-    clothingLabel->setPixmap(*clothingImage);
+    ClothingThumbnail* clothingThumbnail = new ClothingThumbnail(someClothing);
 
-    clothesContainerLayout->addWidget(clothingLabel, rowCount, columnCount);
+    connect(clothingThumbnail, SIGNAL(clothingSelected(int)), this, SLOT(clothingSelected(int)));
+    qDebug() << "ADDING SOME CLOTHES";
+    clothesContainerLayout->addWidget(clothingThumbnail, rowCount, columnCount);
     columnCount++;
     if (columnCount == 3)
     {
@@ -101,4 +101,9 @@ void ClosetUi::setScrollBar(double dy)
 {  
     QScrollBar* scrollBar = ui->scrollArea->verticalScrollBar();
     scrollBar->setValue(scrollBar->value() + dy);
+}
+
+void ClosetUi::clothingSelected(int itemId)
+{
+    qDebug() << "SELECTED " << itemId;    
 }
