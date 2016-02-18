@@ -24,6 +24,9 @@ public:
    void read(const QJsonObject &jObj);
    void write(QJsonObject & jObj);
 
+signals:
+    void itemAdded(ClothingItem item);
+
 public slots:
    void removeItem(int itemID);
    void addItem(const ClothingItem item);

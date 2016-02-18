@@ -23,7 +23,7 @@ MetaDataWriter::MetaDataWriter()
         QDir(path).mkpath(".");
 }
 
-void MetaDataWriter::save()
+void MetaDataWriter::save(Closet &clst)
 {
     QFile saveFile(m_filename);
     QJsonObject top, jsonClst;
@@ -34,7 +34,7 @@ void MetaDataWriter::save()
         return;
     }
 
-    m_closet->write(jsonClst);
+    clst.write(jsonClst);
 
     top["Closet"] = jsonClst;
 
@@ -44,7 +44,6 @@ void MetaDataWriter::save()
 
 void MetaDataWriter::load(Closet &clst)
 {
-    m_closet = &clst;
     QFile loadFile(m_filename);
     QJsonObject top;
 
