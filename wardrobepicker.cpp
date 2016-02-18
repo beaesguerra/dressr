@@ -1,9 +1,10 @@
 #include "wardrobepicker.h"
 
 WardrobePicker::WardrobePicker(Closet * closet, PickUi* pickUi)
+    : m_closet(closet)
+    , m_pickUi(pickUi)
 {
-    m_closet = closet;
-    m_pickUi = pickUi;
+    connect(pickUi, SIGNAL(outfitRejected()), this, SLOT(randomizeOutfit()));
 }
 
 void WardrobePicker::randomizeOutfit()

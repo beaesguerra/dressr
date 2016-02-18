@@ -55,14 +55,11 @@ void PickUi::handleTouchEnd(QTouchEvent* touch)
 		QPointF touchDelta = this->touchStart;
 		touchDelta -= touch->touchPoints().first().pos();
 		if(touchDelta.x() < -((this->width())/6) && (qAbs(touchDelta.y()) < qAbs(touchDelta.x()))){
-			emit outfitRejected();
 			foreach(QLabel* clothingImage, currentOutfit){
 				delete clothingImage;
 			}
 			currentOutfit.clear();
-			ui->outfitContainer->setStyleSheet("background-color:green");
-		} else {
-			ui->outfitContainer->setStyleSheet("background-color:red");
+			emit outfitRejected();
 		}
 	}
 }
@@ -71,7 +68,7 @@ void PickUi::showOutfit(Outfit anOutfit)
 {
 	foreach (ClothingItem clothing, anOutfit.getOutfit()){
         QPixmap* clothingImage = new QPixmap();
-        clothingImage->convertFromImage(clothing.getImage());
+        clothingImage->convertFromImage(clothing.getThumbnail());
 	
         QLabel* imageLabel = new QLabel();
         imageLabel->setAlignment(Qt::AlignCenter);

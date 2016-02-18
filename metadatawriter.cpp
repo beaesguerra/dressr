@@ -2,6 +2,7 @@
 #include <string>
 
 // QT Includes
+#include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QIODevice>
@@ -13,16 +14,20 @@
 MetaDataWriter::MetaDataWriter()
 {
 
-    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
+    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation)[0];
     m_filename = QDir(stdPath).absoluteFilePath("Dressr/dresser.json");
 
     QString path = QDir(stdPath).absoluteFilePath("Dressr");
     if (!QDir(path).exists())
         QDir(path).mkpath(".");
+    else
+        qDebug() << "Data Already there";
+    qDebug() << m_filename;
 }
 
 void MetaDataWriter::save(Closet &clst)
 {
+    qDebug() << "\n\n\n\n\nSaving FIle\n\n\n\n";
     QFile saveFile(m_filename);
     QJsonObject top, jsonClst;
 

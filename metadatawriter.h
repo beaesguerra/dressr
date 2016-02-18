@@ -9,6 +9,7 @@ class MetaDataWriter
 {
 public:
     MetaDataWriter();
+    ~MetaDataWriter() {};
     void load(Closet &clst);
     void save(Closet &clst);
 

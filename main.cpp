@@ -13,8 +13,10 @@
 #include <QDir>
 #include <QDebug>
 #include "PickUi.h"
+#include "wardrobepicker.h"
 #include "AddUi.h"
 #include "addClothesConfirmationUi.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -26,37 +28,40 @@ int main(int argc, char *argv[])
     AddClothesConfirmationUi * addClothesConfirmationUi = new AddClothesConfirmationUi();
     ClosetUi * closetUi = new ClosetUi(closet);
     QWidget::connect(closetUi, SIGNAL(clothingSelected(int)), closet, SLOT(removeItem(int)));
+    DressrUi * w = new DressrUi(pickUi, closetUi, addUi, addClothesConfirmationUi);
+    WardrobePicker * picker = new WardrobePicker(closet, pickUi);
+
     QWidget::connect(addClothesConfirmationUi, SIGNAL(confirmItem(ClothingItem)),
                      closet, SLOT(addItem(ClothingItem)));
-//    QWidget::connect(addClothesConfirmationUi, SIGNAL(confirmItem(ClothingItem)),
-//                     closetUi, SLOT(FilterSelected()));
+    QWidget::connect(addClothesConfirmationUi, SIGNAL(confirmItem(ClothingItem)),
+                     closetUi, SLOT(FilterSelected()));
     QWidget::connect(closet, SLOT(addItem(ClothingItem)),
                      closetUi, SLOT(FilterSelected()));
 
-    DressrUi * w = new DressrUi(pickUi, closetUi, addUi, addClothesConfirmationUi);
 
     mdWriter.load(*closet);
 
 //    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
 //    QString filename = QDir::currentPath().append("/shirt.jpg");
 
-    /*for (int i = 0; i < 10; i++)
-    {
-        QImage shirtImage1 = QImage("/storage/emulated/0/data/testshirt.jpg");
-        ClothingItem shirt1 = ClothingItem(shirtImage1, "Top");
+//    for (int i = 0; i < 10; i++)
+//    {
+//        QImage shirtImage1 = QImage("/storage/emulated/0/data/testshirt.jpg");
+//        ClothingItem shirt1 = ClothingItem(shirtImage1, "Top");
 
-        QImage shirtImage2 = QImage("/storage/emulated/0/data/testpants.jpg");
-        ClothingItem pants1 = ClothingItem(shirtImage2, "Bottom");
+//        QImage shirtImage2 = QImage("/storage/emulated/0/data/testpants.jpg");
+//        ClothingItem pants1 = ClothingItem(shirtImage2, "Bottom");
 
-        QImage shirtImage3 = QImage("/storage/emulated/0/data/shirt.png");
-        ClothingItem shirt3 = ClothingItem(shirtImage3, "Top");
+//        QImage shirtImage3 = QImage("/storage/emulated/0/data/shirt.png");
+//        ClothingItem shirt3 = ClothingItem(shirtImage3, "Top");
 
-        closet->addItem(shirt1);
-        closet->addItem(pants1);
-        closet->addItem(shirt3);
+//        closet->addItem(shirt1);
+//        closet->addItem(pants1);
+//        closet->addItem(shirt3);
         closetUi->FilterSelected("All");
+//    }
+    picker->randomizeOutfit(); //testing wardrobe picker
 
-    }*/
 
     w->show();
     int flag = a.exec();
