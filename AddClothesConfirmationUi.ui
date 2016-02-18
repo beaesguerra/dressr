@@ -153,7 +153,20 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">outline: 0;</string>
+         <string notr="true">* {
+	border-radius:0px; 
+	background-color: orange;	
+	padding: 10px 10px;
+	color: white;
+}
+
+QComboBox::down-arrow{
+	image: none;
+}
+
+QComboBox::drop-down {
+	border: none;
+}</string>
         </property>
        </widget>
       </item>
