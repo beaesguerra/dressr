@@ -13,7 +13,7 @@ Outfit WardrobePicker::randomizeOutfit()
     {
         outfit.push_back(pickItem(allTypes.at(i)));
     }
-    return outfit;
+    return Outfit(outfit);
 }
 
 ClothingItem WardrobePicker::pickItem(const string type)
