@@ -13,20 +13,28 @@
 #include <QDir>
 #include <QDebug>
 #include "PickUi.h"
+#include "AddUi.h"
+#include "addClothesConfirmationUi.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     PickUi * pickUi = new PickUi();
     Closet * closet = new Closet();
+    AddUi * addUi = new AddUi();
+    AddClothesConfirmationUi * addClothesConfirmationUi = new AddClothesConfirmationUi();
     ClosetUi * closetUi = new ClosetUi(closet);
     QWidget::connect(closetUi, SIGNAL(clothingSelected(int)), closet, SLOT(removeItem(int)));
-    DressrUi * w = new DressrUi(pickUi, closetUi);
+    QWidget::connect(addClothesConfirmationUi, SIGNAL(confirmItem(ClothingItem)),
+                     closet, SLOT(addItem(ClothingItem)));
+    QWidget::connect(addClothesConfirmationUi, SIGNAL(confirmItem(ClothingItem)),
+                     closetUi, SLOT(FilterSelected()));
+    DressrUi * w = new DressrUi(pickUi, closetUi, addUi, addClothesConfirmationUi);
 
 //    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
 //    QString filename = QDir::currentPath().append("/shirt.jpg");
 
-    for (int i = 0; i < 10; i++)
+    /*for (int i = 0; i < 10; i++)
     {
         QImage shirtImage1 = QImage("/storage/emulated/0/data/testshirt.jpg");
         ClothingItem shirt1 = ClothingItem(shirtImage1, "Top");
@@ -42,7 +50,7 @@ int main(int argc, char *argv[])
         closet->addItem(shirt3);
         closetUi->FilterSelected("All");
 
-    }
+    }*/
 
     w->show();
 

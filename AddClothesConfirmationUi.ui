@@ -117,12 +117,12 @@
         </property>
         <item>
          <property name="text">
-          <string>Tops</string>
+          <string>Top</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Bottoms</string>
+          <string>Bottom</string>
          </property>
         </item>
        </widget>

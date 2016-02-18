@@ -20,7 +20,7 @@ class DressrUi : public QWidget
 
 public:
     DressrUi();
-    DressrUi(PickUi* pickUi, ClosetUi* closetUi);
+    DressrUi(PickUi* pickUi, ClosetUi* closetUi, AddUi * addUi, AddClothesConfirmationUi * addClothesConfirmation);
     ~DressrUi();
 
 public slots:
