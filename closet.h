@@ -15,7 +15,6 @@ class Closet : public QWidget
    Q_OBJECT
 public:
    Closet();
-   void addItem(const ClothingItem item);
    void addType(const string type);
    void removeType(const string type);
    ClothingItem getItem(int itemID);
@@ -27,6 +26,7 @@ public:
 
 public slots:
    void removeItem(int itemID);
+   void addItem(const ClothingItem item);
 
 private:
    vector <ClothingItem> m_items;

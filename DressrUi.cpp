@@ -13,13 +13,13 @@ DressrUi::DressrUi()
 
 }
 
-DressrUi::DressrUi(PickUi * pickUi, ClosetUi * closetUi)
+DressrUi::DressrUi(PickUi * pickUi, ClosetUi * closetUi, AddUi *addUi, AddClothesConfirmationUi *addClothesConfirmation)
 : ui(new Ui::DressrUi)
-, addUi(new AddUi)
-, addClothesConfirmation(new AddClothesConfirmationUi)
 {
     this->pickUi = pickUi;
     this->closetUi = closetUi;
+    this->addUi = addUi;
+    this->addClothesConfirmation = addClothesConfirmation;
     ui->setupUi(this);
     ui->stackedTabWidget->addWidget(pickUi);
     ui->stackedTabWidget->addWidget(closetUi);
@@ -41,6 +41,9 @@ DressrUi::DressrUi(PickUi * pickUi, ClosetUi * closetUi)
            addClothesConfirmation, SLOT(setImage(QString)));
 
     connect(addClothesConfirmation, SIGNAL(rejectItem()),
+            this, SLOT(addTabClicked()));
+
+    connect(addClothesConfirmation, SIGNAL(confirmItem(ClothingItem)),
             this, SLOT(addTabClicked()));
 
 

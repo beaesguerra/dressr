@@ -115,6 +115,16 @@
           <pointsize>20</pointsize>
          </font>
         </property>
+        <item>
+         <property name="text">
+          <string>Top</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Bottom</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>
