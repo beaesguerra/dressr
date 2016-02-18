@@ -7,6 +7,7 @@
 #include <QTouchEvent>
 #include <QScrollBar>
 #include "ClothesContainer.h"
+#include "ClothingThumbnail.h"
 #include <QDebug>
 
 static int columnCount = 0;
@@ -31,7 +32,6 @@ ClosetUi::ClosetUi(Closet * closet)
     this->closet = closet;
     SetTypes(closet->getTypes());
     connect(ui->filters, SIGNAL(currentIndexChanged(QString)), this, SLOT(FilterSelected(QString)));
-    FilterSelected(QString::fromStdString("All"));
 }
 
 ClosetUi::~ClosetUi()
@@ -52,12 +52,11 @@ void ClosetUi::AddType(QString type) { //TODO
 
 void ClosetUi::AddClothesToView(ClothingItem someClothing)
 {
-    QPixmap* clothingImage = new QPixmap();
-    clothingImage->convertFromImage(someClothing.getThumbnail());
-    QLabel* clothingLabel = new QLabel();
-    clothingLabel->setPixmap(*clothingImage);
+    ClothingThumbnail* clothingThumbnail = new ClothingThumbnail(someClothing);
 
-    clothesContainerLayout->addWidget(clothingLabel, rowCount, columnCount);
+    connect(clothingThumbnail, SIGNAL(clothingSelected(int)), this, SIGNAL(clothingSelected(int)));
+    connect(clothingThumbnail, SIGNAL(clothingSelected(int)), this, SLOT(FilterSelected()));
+    clothesContainerLayout->addWidget(clothingThumbnail, rowCount, columnCount);
     columnCount++;
     if (columnCount == 3)
     {
@@ -97,6 +96,12 @@ void ClosetUi::FilterSelected(QString filter)
     }
 }
 
+void ClosetUi::FilterSelected()
+{
+    QString filter = ui->filters->currentText();
+    FilterSelected(filter);
+}
+    
 void ClosetUi::setScrollBar(double dy)
 {  
     QScrollBar* scrollBar = ui->scrollArea->verticalScrollBar();
