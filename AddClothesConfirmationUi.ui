@@ -152,6 +152,9 @@
           <pointsize>20</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">outline: 0;</string>
+        </property>
        </widget>
       </item>
      </layout>
@@ -204,7 +207,7 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">outline: 0;</string>
         </property>
         <property name="text">
          <string/>
@@ -244,7 +247,7 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">outline: 0;</string>
         </property>
         <property name="text">
          <string/>
