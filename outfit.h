@@ -9,6 +9,7 @@ class Outfit
 public:
    Outfit(vector <ClothingItem> outfit);
    vector <ClothingItem> getOutfit();
+   Outfit();
 
 private:
    vector <ClothingItem> m_outfit;

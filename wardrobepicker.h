@@ -27,6 +27,7 @@ private:
     Closet * m_closet;
     PickUi * m_pickUi;
     ClosetUi * m_closetUi;
+    Outfit * m_lastOutfit;
 };
 
 #endif // WARDROBEPICKER_H

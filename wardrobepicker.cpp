@@ -4,6 +4,7 @@ WardrobePicker::WardrobePicker(Closet * closet, PickUi* pickUi, ClosetUi* closet
     : m_closet(closet)
     , m_pickUi(pickUi)
     , m_closetUi(closetUi)
+    , m_lastOutfit(NULL)
 {
     connect(pickUi, SIGNAL(outfitRejected()), this, SLOT(randomizeOutfit()));
     connect(closetUi, SIGNAL(deleteClothing()), this, SLOT(randomizeOutfit()));
@@ -13,13 +14,21 @@ void WardrobePicker::randomizeOutfit()
 {
     vector <string> allTypes = m_closet->getTypes();
     vector <ClothingItem> outfit;
-//    for(unsigned int i = 0; i < allTypes.size(); i++)
-//    {
-//        outfit.push_back(pickItem(allTypes.at(i)));
-//    }
-    outfit.push_back(pickItem("Top")); //currently supports only picking top and bottom
-    outfit.push_back(pickItem("Bottom"));
+    ClothingItem top = pickItem("Top");
+    ClothingItem bottom = pickItem("Bottom");
+    if (m_lastOutfit != NULL){
+           while ( m_lastOutfit->getOutfit().at(0).getItemID() == bottom.getItemID() &&
+            m_lastOutfit->getOutfit().at(1).getItemID() == top.getItemID() &&
+               m_closet->getAll().size() > 2)
+        {
+            top = pickItem("Top");
+            bottom = pickItem("Bottom");
+        }
+    }
+    outfit.push_back(top); //currently supports only picking top and bottom
+    outfit.push_back(bottom);
     m_pickUi->showOutfit(outfit);
+    m_lastOutfit = new Outfit(outfit);
 }
 
 void WardrobePicker::checkIfNoClothesOfType(ClothingItem item)
