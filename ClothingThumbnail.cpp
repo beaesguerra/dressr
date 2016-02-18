@@ -10,6 +10,7 @@ ClothingThumbnail::ClothingThumbnail(ClothingItem someClothing)
     this->setPixmap(*clothingImage);
     setAttribute(Qt::WA_AcceptTouchEvents);
     connect(&touchTimer, SIGNAL(timeout()), this, SLOT(selectionTimerTimeout()));
+    setStyleSheet("border: 4px solid orange; border-radius: 8px; background-color: orange;");
 }
 
 ClothingThumbnail::~ClothingThumbnail()
@@ -37,9 +38,11 @@ void ClothingThumbnail::selectionTimerTimeout()
 void ClothingThumbnail::handleTouchBegin()
 {	
 	touchTimer.start(1000);	
+    setStyleSheet("border: 4px solid #35B5D8; border-radius: 8px; background-color: #35B5D8;");
 }
 
 void ClothingThumbnail::handleTouchEnd()
 {	
 	touchTimer.stop();
+    setStyleSheet("border: 4px solid orange; border-radius: 8px; background-color: orange;");
 }
