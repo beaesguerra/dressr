@@ -11,7 +11,7 @@ class ClothingThumbnail : public QLabel
 {
 	Q_OBJECT
 public:
-	ClothingThumbnail(ClothingItem someClothing);
+	ClothingThumbnail(ClothingItem someClothing, bool acceptTouchEvents = true);
 	~ClothingThumbnail();
 	bool event(QEvent* event);
 

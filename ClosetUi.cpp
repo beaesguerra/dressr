@@ -86,15 +86,18 @@ void ClosetUi::AddDefaultLayout()
     QImage * defaultThumbnail = new QImage(":/Resources/whiteshirt.png");
     ClothingItem * defaultShirt = new ClothingItem();
     defaultShirt->setThumbnail(*defaultThumbnail);
-    ClothingThumbnail* clothingThumbnail = new ClothingThumbnail(* defaultShirt);
+    ClothingThumbnail* clothingThumbnail = new ClothingThumbnail(*defaultShirt, false);
+    clothingThumbnail->setStyleSheet("background-color: none; border: none;");
     clothesContainerLayout->addWidget(clothingThumbnail, 1, 1);
 
     QImage * whiteSpace = new QImage(":/Resources/whitespace.png");
     ClothingItem * defaultSpace = new ClothingItem();
     defaultSpace->setThumbnail(*whiteSpace);
-    ClothingThumbnail* whiteThumbnail = new ClothingThumbnail(* defaultSpace);
-    for (int i = 0; i < 3; i++)
+    ClothingThumbnail* whiteThumbnail = new ClothingThumbnail(*defaultSpace, false);
+    whiteThumbnail->setStyleSheet("background-color: none; border: none;");
+    for (int i = 0; i < 3; i++){
         clothesContainerLayout->addWidget(whiteThumbnail, 0, i);
+    }
 }
 
 void ClosetUi::FilterSelected(QString filter)

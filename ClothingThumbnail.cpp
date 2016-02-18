@@ -2,13 +2,15 @@
 #include <QPixmap>
 #include <QEvent>
 
-ClothingThumbnail::ClothingThumbnail(ClothingItem someClothing)
+ClothingThumbnail::ClothingThumbnail(ClothingItem someClothing, bool acceptTouchEvents)
 : itemId(someClothing.getItemID())
 {
     QPixmap* clothingImage = new QPixmap();
     clothingImage->convertFromImage(someClothing.getThumbnail());
     this->setPixmap(*clothingImage);
-    setAttribute(Qt::WA_AcceptTouchEvents);
+    if(acceptTouchEvents){
+        setAttribute(Qt::WA_AcceptTouchEvents);
+    }
     connect(&touchTimer, SIGNAL(timeout()), this, SLOT(selectionTimerTimeout()));
     setStyleSheet("border: 4px solid orange; border-radius: 8px; background-color: orange;");
 }
