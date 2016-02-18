@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
     QImage shirtImage2 = QImage("/storage/emulated/0/data/shirt.jpg");
     ClothingItem shirt2 = ClothingItem(shirtImage2, "Top");
     closet->addItem(shirt2);
-    closetUi->SetTypes(closet->getTypes());
 
     for(int i = 0; i < 50; i++){
         closetUi->AddClothesToView(shirt2);
