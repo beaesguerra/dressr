@@ -41,66 +41,30 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
-       <widget class="QPushButton" name="acceptButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>WenQuanYi Micro Hei Mono</family>
+          <pointsize>30</pointsize>
+         </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">border:none;</string>
+         <string notr="true">color: #999999;</string>
         </property>
         <property name="text">
-         <string/>
+         <string>Swipe right for a new outfit!</string>
         </property>
-        <property name="icon">
-         <iconset resource="resources.qrc">
-          <normaloff>:/Resources/accept.png</normaloff>:/Resources/accept.png</iconset>
+        <property name="textFormat">
+         <enum>Qt::RichText</enum>
         </property>
-        <property name="iconSize">
-         <size>
-          <width>300</width>
-          <height>300</height>
-         </size>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="rejectButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="resources.qrc">
-          <normaloff>:/Resources/reject.png</normaloff>:/Resources/reject.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>300</width>
-          <height>300</height>
-         </size>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -109,8 +73,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

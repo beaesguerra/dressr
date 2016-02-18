@@ -60,6 +60,7 @@ void PickUi::handleTouchEnd(QTouchEvent* touch)
 			}
 			currentOutfit.clear();
 			emit outfitRejected();
+            ui->label->setStyleSheet("color: white");
 		}
 	}
 }
