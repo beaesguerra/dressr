@@ -30,9 +30,10 @@ public slots:
     void FilterSelected(QString filter);
     void FilterSelected();
     void setScrollBar(double dy);
+	void clothingSelected(int itemId);
 
 signals:
-	void clothingSelected(int itemId);
+    void deleteClothing(int itemId);
 
 private:
     Ui::ClosetUi * ui;

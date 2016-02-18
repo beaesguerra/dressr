@@ -9,6 +9,7 @@
 #include "ClothesContainer.h"
 #include "ClothingThumbnail.h"
 #include <QDebug>
+#include <QMessageBox>
 
 static int columnCount = 0;
 static int rowCount = 0;
@@ -54,7 +55,7 @@ void ClosetUi::AddClothesToView(ClothingItem someClothing)
 {
     ClothingThumbnail* clothingThumbnail = new ClothingThumbnail(someClothing);
 
-    connect(clothingThumbnail, SIGNAL(clothingSelected(int)), this, SIGNAL(clothingSelected(int)));
+    connect(clothingThumbnail, SIGNAL(clothingSelected(int)), this, SLOT(clothingSelected(int)));
     connect(clothingThumbnail, SIGNAL(clothingSelected(int)), this, SLOT(FilterSelected()));
     clothesContainerLayout->addWidget(clothingThumbnail, rowCount, columnCount);
     columnCount++;
@@ -106,4 +107,13 @@ void ClosetUi::setScrollBar(double dy)
 {  
     QScrollBar* scrollBar = ui->scrollArea->verticalScrollBar();
     scrollBar->setValue(scrollBar->value() + dy);
+}
+
+void ClosetUi::clothingSelected(int itemId)
+{
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Delete Item", "Are you sure?", QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+        emit deleteClothing(itemId);
+    } 
 }
