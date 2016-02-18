@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "clothingitem.h"
+#include "closet.h"
 class QGridLayout;
 
 namespace Ui 
@@ -17,26 +18,23 @@ class ClosetUi : public QWidget
     Q_OBJECT
 
 public:
-    ClosetUi();
-    QWidget* getClothesContainer();
+    ClosetUi(Closet * closet);
+    ~ClosetUi();
+
     void AddClothesToView(ClothingItem someClothing);
     void SetTypes(vector<string> types);
     void AddType(QString type);
-    bool event(QEvent* event);
-    ~ClosetUi();
+    void ClearView();
 
 public slots:
     void FilterSelected(QString filter);
+    void setScrollBar(double dy);
 
 private:
     Ui::ClosetUi * ui;
-	QGridLayout* clothesContainerLayout;
+    QGridLayout* clothesContainerLayout;
     bool touchStarted;
     QPointF touchStart;
-
-    void handleTouchBegin(QTouchEvent* touch);
-    void handleTouchEnd(QTouchEvent* touch);
-    void handleTouchUpdate(QTouchEvent* touch);
+    Closet * closet;
 };
-
 #endif // CLOSET_UI_H

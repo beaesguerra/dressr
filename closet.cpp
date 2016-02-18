@@ -28,8 +28,6 @@ void Closet::removeItem(int itemID)
     }
 }
 
-
-
 void Closet::addType(const string type)
 {
     if (type.empty())

@@ -4,11 +4,16 @@
 #include "PickUi.h"
 #include "ClosetUi.h"
 
-DressrUi::DressrUi() 
-: ui(new Ui::DressrUi)
-, pickUi(new PickUi)
-, closetUi(new ClosetUi)
+DressrUi::DressrUi()
 {
+
+}
+
+DressrUi::DressrUi(PickUi * pickUi, ClosetUi * closetUi)
+: ui(new Ui::DressrUi)
+{
+    this->pickUi = pickUi;
+    this->closetUi = closetUi;
     ui->setupUi(this);
     ui->stackedTabWidget->addWidget(pickUi);
     ui->stackedTabWidget->addWidget(closetUi);
@@ -17,11 +22,7 @@ DressrUi::DressrUi()
     		this, SLOT(pickTabClicked()));
     connect(ui->closetTab, SIGNAL(clicked()),
     		this, SLOT(closetTabClicked()));
-}
 
-ClosetUi * DressrUi::getClosetUi()
-{
-    return closetUi;
 }
 
 DressrUi::~DressrUi()

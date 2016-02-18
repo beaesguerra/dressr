@@ -12,26 +12,28 @@
 #include <QStandardPaths>
 #include <QDir>
 #include <QDebug>
+#include "PickUi.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    DressrUi w;
+    PickUi * pickUi = new PickUi();
+    Closet * closet = new Closet();
+    ClosetUi * closetUi = new ClosetUi(closet);
+    DressrUi * w = new DressrUi(pickUi, closetUi);
 
-    ClosetUi * closetUi = w.getClosetUi();
 //    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
 //    QString filename = QDir::currentPath().append("/shirt.jpg");
 
-    Closet closet;
     QImage shirtImage2 = QImage("/storage/emulated/0/data/shirt.jpg");
     ClothingItem shirt2 = ClothingItem(shirtImage2, "shirt");
-    closet.addItem(shirt2);
-    closetUi->setTypes(closet.getTypes());
+    closet->addItem(shirt2);
+    closetUi->SetTypes(closet->getTypes());
 
     for(int i = 0; i < 50; i++){
         closetUi->AddClothesToView(shirt2);
     }
-    w.show();
+    w->show();
 
     return a.exec();
 }
