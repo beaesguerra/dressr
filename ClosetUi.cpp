@@ -114,9 +114,6 @@ void ClosetUi::clothingSelected(int itemId)
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, "Delete Item", "Are you sure?", QMessageBox::Yes|QMessageBox::No);
     if (reply == QMessageBox::Yes) {
-      qDebug() << "Yes was clicked";
-    } else {
-      qDebug() << "Yes was *not* clicked";
-    }    
-    emit deleteClothing(itemId);
+        emit deleteClothing(itemId);
+    } 
 }
