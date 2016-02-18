@@ -15,10 +15,11 @@ public:
     void load(Closet &clst);
 
 public slots:
-    void save(Closet &clst);
+    void save();
 
 private:
     QString m_filename;
+    Closet * m_closet;
 
 };
 
