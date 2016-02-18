@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 //    QString filename = QDir::currentPath().append("/shirt.jpg");
 
     QImage shirtImage2 = QImage("/storage/emulated/0/data/shirt.jpg");
-    ClothingItem shirt2 = ClothingItem(shirtImage2, "shirt");
+    ClothingItem shirt2 = ClothingItem(shirtImage2, "Top");
     closet->addItem(shirt2);
     closetUi->SetTypes(closet->getTypes());
 

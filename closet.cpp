@@ -6,9 +6,9 @@
 
 Closet::Closet()
 {
-    m_availableTypes.push_back("Top"); //initialize default types
+    m_availableTypes.push_back("All"); //initialize default types
+    m_availableTypes.push_back("Top");
     m_availableTypes.push_back("Bottom");
-    m_availableTypes.push_back("Overall");
 }
 
 void Closet::addItem(const ClothingItem item)

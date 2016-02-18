@@ -7,6 +7,7 @@
 #include <QTouchEvent>
 #include <QScrollBar>
 #include "ClothesContainer.h"
+#include <QDebug>
 
 static int columnCount = 0;
 static int rowCount = 0;
@@ -27,8 +28,8 @@ ClosetUi::ClosetUi(Closet * closet)
     clothesContainerLayout->setColumnStretch(1, 1);
     clothesContainerLayout->setColumnStretch(2, 1);
     this->closet = closet;
-    connect(ui->filters, SIGNAL(currentIndex(QString)), this, SLOT(FilterSelected(QString)));
-
+    connect(ui->filters, SIGNAL(currentIndexChanged(QString)), this, SLOT(FilterSelected(QString)));
+    FilterSelected(QString::fromStdString("All"));
 }
 
 ClosetUi::~ClosetUi()
@@ -42,7 +43,7 @@ void ClosetUi::SetTypes(vector<string> types) {
 }
 
 void ClosetUi::AddType(QString type) { //TODO
-       ui->filters->addItem(type);
+    ui->filters->addItem(type);
     clothesContainerLayout->setColumnStretch(2, 1);
 }
 
@@ -71,17 +72,27 @@ void ClosetUi::ClearView() {
             delete widget;
         }
     }
+    columnCount = 0;
 }
 
 void ClosetUi::FilterSelected(QString filter)
 {
     string type = filter.toStdString();
     ClearView();
-    vector<ClothingItem> temp = closet->getAll(type);
-    if (temp.size() == 0)
-        return;
-    for(unsigned int i = 0; i < temp.size(); i++)
-        AddClothesToView(temp.at(i));
+    vector<ClothingItem> temp;
+    if (filter.compare("All") == 0)
+    {
+        temp = closet->getAll();
+        for (unsigned int i = 0; i < temp.size(); i++)
+            AddClothesToView(temp.at(i));
+    }
+    else
+    {
+        temp = closet->getAll(type);
+        for(unsigned int i = 0; i < temp.size(); i++)
+            AddClothesToView(temp.at(i));
+    }
+   // clothesContainerLayout->setRowStretch(0, 3);
 }
 
 void ClosetUi::setScrollBar(double dy)
