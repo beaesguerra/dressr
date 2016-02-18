@@ -1,8 +1,11 @@
 #include "addClothesConfirmationUi.h"
 #include "ui_AddClothesConfirmationUi.h"
 
+#include <QCameraInfo>
 #include <QDebug>
 #include <QFile>
+#include <QImageReader>
+#include <QImageIOHandler>
 #include <QTransform>
 #include <QApplication>
 #include <QScreen>
@@ -48,11 +51,27 @@ void AddClothesConfirmationUi::itemRejected()
 void AddClothesConfirmationUi::getImage(QString path)
 {
     QImage img = QImage(path);
+    QImageReader rdr(path);
+
+    int rotation = 0;
+
+    switch (rdr.transformation()) {
+        case QImageIOHandler::TransformationNone:
+            rotation = 0;
+            break;
+        case QImageIOHandler::TransformationRotate90:
+            rotation = 90;
+            break;
+        case QImageIOHandler::TransformationRotate180:
+            rotation = 180;
+            break;
+        case QImageIOHandler::TransformationRotate270:
+            rotation = 270;
+            break;
+    }
 
     QTransform transform;
-    transform.rotate(90);
-
-    qDebug() << img.size();
+    transform.rotate(rotation);
 
     m_image = img.scaled(QSize(933, 700), Qt::KeepAspectRatioByExpanding).transformed(transform).copy(0, 116.5, 700, 716.5);
     QFile::remove(path);
