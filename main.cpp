@@ -13,6 +13,7 @@
 #include <QDir>
 #include <QDebug>
 #include "PickUi.h"
+#include "wardrobepicker.h"
 
 int main(int argc, char *argv[])
 {
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
     ClosetUi * closetUi = new ClosetUi(closet);
     QWidget::connect(closetUi, SIGNAL(clothingSelected(int)), closet, SLOT(removeItem(int)));
     DressrUi * w = new DressrUi(pickUi, closetUi);
+    WardrobePicker * picker = new WardrobePicker(closet, pickUi); //testing wardrobe picker
 
 //    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
 //    QString filename = QDir::currentPath().append("/shirt.jpg");
@@ -43,7 +45,7 @@ int main(int argc, char *argv[])
         closetUi->FilterSelected("All");
 
     }
-
+    picker->randomizeOutfit();
     w->show();
 
     return a.exec();
