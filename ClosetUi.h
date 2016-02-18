@@ -18,21 +18,15 @@ class ClosetUi : public QWidget
 
 public:
     ClosetUi();
-    QWidget* getClothesContainer();
     void AddClothesToView(ClothingItem someClothing);
     void ClearView();
-    bool event(QEvent* event);
     ~ClosetUi();
+
+public slots:
+	void setScrollBar(double dy);
 
 private:
     Ui::ClosetUi * ui;
 	QGridLayout* clothesContainerLayout;
-    bool touchStarted;
-    QPointF touchStart;
-
-    void handleTouchBegin(QTouchEvent* touch);
-    void handleTouchEnd(QTouchEvent* touch);
-    void handleTouchUpdate(QTouchEvent* touch);
 };
-
 #endif // CLOSET_UI_H

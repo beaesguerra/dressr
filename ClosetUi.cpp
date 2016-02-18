@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QTouchEvent>
 #include <QScrollBar>
+#include "ClothesContainer.h"
 
 static int columnCount = 0;
 static int rowCount = 0;
@@ -15,9 +16,13 @@ ClosetUi::ClosetUi()
     , clothesContainerLayout(new QGridLayout())
 {
     ui->setupUi(this);
-    setAttribute(Qt::WA_AcceptTouchEvents);
+    ClothesContainer* clothesContainer = new ClothesContainer();
+    ui->scrollAreaWidgetContents->layout()->addWidget(clothesContainer);
 
-    ui->clothesContainer->setLayout(clothesContainerLayout);
+    connect(clothesContainer, SIGNAL(scrollUpDown(double)),
+            this, SLOT(setScrollBar(double)));
+
+    clothesContainer->setLayout(clothesContainerLayout);
     clothesContainerLayout->setColumnStretch(0, 1);
     clothesContainerLayout->setColumnStretch(1, 1);
     clothesContainerLayout->setColumnStretch(2, 1);
@@ -27,26 +32,10 @@ ClosetUi::~ClosetUi()
 {
 }
 
-bool ClosetUi::event(QEvent *event)
-{
-    if (event->type() == QEvent::TouchBegin) {
-        handleTouchBegin(static_cast<QTouchEvent*>(event));
-        return true;
-    }
-    else if (event->type() == QEvent::TouchEnd) {
-        handleTouchEnd(static_cast<QTouchEvent*>(event));
-        return true;
-    }
-    else if (event->type() == QEvent::TouchUpdate) {
-        handleTouchUpdate(static_cast<QTouchEvent*>(event));
-        return true;
-    }
-    return QWidget::event(event);
-}
-
-QWidget* ClosetUi::getClothesContainer()
-{
-    return  ui->clothesContainer;
+void ClosetUi::setScrollBar(double dy)
+{  
+    QScrollBar* scrollBar = ui->scrollArea->verticalScrollBar();
+    scrollBar->setValue(scrollBar->value() + dy);
 }
 
 void ClosetUi::AddClothesToView(ClothingItem someClothing)
@@ -64,6 +53,7 @@ void ClosetUi::AddClothesToView(ClothingItem someClothing)
         rowCount++;
     }
 }
+
 void ClosetUi::ClearView() {
     while( clothesContainerLayout->count() ) {
         QWidget* widget = clothesContainerLayout->itemAt(0)->widget();
@@ -74,43 +64,3 @@ void ClosetUi::ClearView() {
     }
 }
 
-void ClosetUi::handleTouchBegin(QTouchEvent* touch)
-{
-    if (touch->touchPoints().isEmpty()) {
-        return;
-    }
-    else {
-        touchStarted = true;
-        this->touchStart = touch->touchPoints().first().pos();
-    }
-}
-
-void ClosetUi::handleTouchEnd(QTouchEvent* touch)
-{
-    if (!touchStarted || touch->touchPoints().isEmpty()) {
-        return;
-    }
-    else {
-        handleTouchUpdate(touch);
-        touchStarted = false;
-    }
-}
-
-void ClosetUi::handleTouchUpdate(QTouchEvent* touch)
-{
-    if (!touchStarted || touch->touchPoints().isEmpty()) {
-        return;
-    }
-    else {
-        QPointF touchDelta = this->touchStart;
-        touchDelta -= touch->touchPoints().first().pos();
-
-        // ui->clothesContainer->setStyleSheet("background-color:red");
-        QScrollBar* scrollBar = ui->scrollArea->verticalScrollBar();
-        if (qAbs(touchDelta.y()) > qAbs(touchDelta.x())) {
-            // ui->clothesContainer->setStyleSheet("background-color:green");
-            scrollBar->setValue(scrollBar->value() + touchDelta.y());
-        }
-        this->touchStart = touch->touchPoints().first().pos();
-    }
-}
