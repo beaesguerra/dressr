@@ -70,7 +70,7 @@ void PickUi::showOutfit(Outfit anOutfit)
     clearView();
 	foreach (ClothingItem clothing, anOutfit.getOutfit()){
         QPixmap* clothingImage = new QPixmap();
-        clothingImage->convertFromImage(clothing.getThumbnail());
+        clothingImage->convertFromImage(clothing.getImage());
 	
         QLabel* imageLabel = new QLabel();
         imageLabel->setAlignment(Qt::AlignCenter);

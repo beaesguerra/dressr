@@ -17,7 +17,7 @@ ClothingItem::ClothingItem()
 ClothingItem::ClothingItem(QImage image, string type)
 {
     double screenWidth = QApplication::screens().at(0)->size().width();
-    m_image = image;
+    m_image = image.scaled(screenWidth/2, screenWidth/2, Qt::KeepAspectRatio);
     m_thumbnail = image.scaled(screenWidth/3.3 - 20, screenWidth/3.3 - 20, Qt::KeepAspectRatio);
     m_type = type;
     m_itemID = m_itemCounter;

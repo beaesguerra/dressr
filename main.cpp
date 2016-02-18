@@ -21,7 +21,6 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
     MetaDataWriter mdWriter;
     PickUi * pickUi = new PickUi();
     Closet * closet = new Closet();
@@ -41,25 +40,8 @@ int main(int argc, char *argv[])
 
     mdWriter.load(*closet);
 
-//    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
-//    QString filename = QDir::currentPath().append("/shirt.jpg");
 
-//    for (int i = 0; i < 10; i++)
-//    {
-//        QImage shirtImage1 = QImage("/storage/emulated/0/data/testshirt.jpg");
-//        ClothingItem shirt1 = ClothingItem(shirtImage1, "Top");
-
-//        QImage shirtImage2 = QImage("/storage/emulated/0/data/testpants.jpg");
-//        ClothingItem pants1 = ClothingItem(shirtImage2, "Bottom");
-
-//        QImage shirtImage3 = QImage("/storage/emulated/0/data/shirt.png");
-//        ClothingItem shirt3 = ClothingItem(shirtImage3, "Top");
-
-//        closet->addItem(shirt1);
-//        closet->addItem(pants1);
-//        closet->addItem(shirt3);
         closetUi->FilterSelected("All");
-//    }
     picker->randomizeOutfit(); //testing wardrobe picker
 
 
