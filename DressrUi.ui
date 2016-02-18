@@ -97,6 +97,11 @@
 	background-color:#19BD96;
 	font-size: 60px;
 	font-weight: bold;
+    outline: 0;
+}
+
+QPushButton:pressed {
+	background-color: rgb(28, 127, 103)
 }
 </string>
      </property>
@@ -132,7 +137,8 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-right: 1px solid white; outline: 0;</string>
+         <string notr="true">border-right: 1px solid white;
+</string>
         </property>
         <property name="text">
          <string>PICK</string>
@@ -155,7 +161,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">outline: 0;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>CLOSET</string>
@@ -178,8 +184,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-left: 1px solid white;
- outline: 0;</string>
+         <string notr="true">border-left: 1px solid white;</string>
         </property>
         <property name="text">
          <string>ADD</string>
