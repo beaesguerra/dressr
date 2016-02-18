@@ -7,11 +7,19 @@
 
 #include <QDir>
 #include <QStandardPaths>
+#include <QApplication>
+#include <QScreen>
 
 AddUi::AddUi()
 : ui(new Ui::AddUi)
 {
     ui->setupUi(this);
+    double screenWidth = QApplication::screens().at(0)->size().width();
+    double screenHeight = QApplication::screens().at(0)->size().height();
+
+    ui->gridLayout->setAlignment(Qt::AlignHCenter);
+    ui->quickWidget->setMaximumHeight(screenWidth - 18); //18 is padding
+    ui->capture->setMaximumHeight(screenHeight/10);
 
     ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/dressrCamera.qml")));
     QQuickItem *item = ui->quickWidget->rootObject();

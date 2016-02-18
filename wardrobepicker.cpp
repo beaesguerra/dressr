@@ -6,7 +6,7 @@ WardrobePicker::WardrobePicker(Closet * closet, PickUi* pickUi, ClosetUi* closet
     , m_closetUi(closetUi)
 {
     connect(pickUi, SIGNAL(outfitRejected()), this, SLOT(randomizeOutfit()));
-       connect(closetUi, SIGNAL(deleteClothing()), this, SLOT(randomizeOutfit()));
+    connect(closetUi, SIGNAL(deleteClothing()), this, SLOT(randomizeOutfit()));
 }
 
 void WardrobePicker::randomizeOutfit()

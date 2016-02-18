@@ -15,9 +15,6 @@ PickUi::PickUi()
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_AcceptTouchEvents);
-
-
-
 }
 
 PickUi::~PickUi()
