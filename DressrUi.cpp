@@ -70,7 +70,7 @@ void DressrUi::addTabClicked()
 
 void DressrUi::confirmClothes(QString path)
 {
-    qDebug() << path;
+//    qDebug() << path;
     ui->stackedTabWidget->setCurrentWidget(addClothesConfirmation);
 }
 

@@ -44,6 +44,6 @@ void AddUi::captureImage() {
 
 void AddUi::imageSaved(QString url)
 {
-    qDebug() << url;
+//    qDebug() << url;
     emit imageTaken(url);
 }

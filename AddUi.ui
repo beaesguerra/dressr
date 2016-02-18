@@ -40,11 +40,16 @@
   <widget class="QPushButton" name="capture">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>200</x>
      <y>750</y>
-     <width>128</width>
-     <height>48</height>
+     <width>320</width>
+     <height>161</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>26</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Capture</string>

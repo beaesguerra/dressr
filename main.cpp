@@ -21,7 +21,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MetaDataWriter mdWriter;
+    MetaDataWriter * mdWriter = new MetaDataWriter();
     PickUi * pickUi = new PickUi();
     Closet * closet = new Closet();
     AddUi * addUi = new AddUi();
@@ -33,13 +33,15 @@ int main(int argc, char *argv[])
 
     QWidget::connect(addClothesConfirmationUi, SIGNAL(confirmItem(ClothingItem)),
                      closet, SLOT(addItem(ClothingItem)));
+//    QWidget::connect(addClothesConfirmationUi, SIGNAL(confirmItem(ClothingItem)),
+//                     mdWriter, SLOT(save()));
     QWidget::connect(addClothesConfirmationUi, SIGNAL(confirmItem(ClothingItem)),
                      closetUi, SLOT(FilterSelected()));
-    QWidget::connect(closet, SLOT(addItem(ClothingItem)),
-                     closetUi, SLOT(FilterSelected()));
+//    QWidget::connect(closet, SLOT(addItem(ClothingItem)),
+//                     closetUi, SLOT(FilterSelected()));
 
 
-    mdWriter.load(*closet);
+    mdWriter->load(*closet);
 
 //    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
 //    QString filename = QDir::currentPath().append("/shirt.jpg");
@@ -65,6 +67,6 @@ int main(int argc, char *argv[])
 
     w->show();
     int flag = a.exec();
-    mdWriter.save(*closet);
+    mdWriter->save();
     return flag;
 }

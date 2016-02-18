@@ -15,19 +15,16 @@ MetaDataWriter::MetaDataWriter()
 {
 
     QString stdPath = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation)[0];
-    m_filename = QDir(stdPath).absoluteFilePath("Dressr/dresser.json");
+//    QString stdPath = "/storage/emulated/0/data";
+    m_filename = QDir(stdPath).absoluteFilePath("Dressr/dressr.json");
 
     QString path = QDir(stdPath).absoluteFilePath("Dressr");
     if (!QDir(path).exists())
         QDir(path).mkpath(".");
-    else
-        qDebug() << "Data Already there";
-    qDebug() << m_filename;
 }
 
-void MetaDataWriter::save(Closet &clst)
+void MetaDataWriter::save()
 {
-    qDebug() << "\n\n\n\n\nSaving FIle\n\n\n\n";
     QFile saveFile(m_filename);
     QJsonObject top, jsonClst;
 
@@ -37,7 +34,7 @@ void MetaDataWriter::save(Closet &clst)
         return;
     }
 
-    clst.write(jsonClst);
+    m_closet->write(jsonClst);
 
     top["Closet"] = jsonClst;
 
@@ -47,6 +44,7 @@ void MetaDataWriter::save(Closet &clst)
 
 void MetaDataWriter::load(Closet &clst)
 {
+    m_closet = &clst;
     QFile loadFile(m_filename);
     QJsonObject top;
 

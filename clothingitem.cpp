@@ -1,5 +1,6 @@
 #include "clothingitem.h"
 
+#include <QDebug>
 #include <QDir>
 #include <QStandardPaths>
 #include <QString>
@@ -46,6 +47,7 @@ void ClothingItem::read(const QJsonObject &jObj)
     m_type = jObj["type"].toString().toStdString();
     m_image = QImage(jObj["img"].toString());
     m_itemID = jObj["id"].toInt();
+    m_thumbnail = m_image.scaled(768/3.3 - 20, 768/3.3 - 20, Qt::KeepAspectRatio);
 }
 
 void ClothingItem::write(QJsonObject &jObj)
@@ -54,6 +56,7 @@ void ClothingItem::write(QJsonObject &jObj)
     jObj["id"] = (int) m_itemID;
 
     QString stdPath = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation)[0];
+//    QString stdPath = "/storage/emulated/0/data";
     QString filename = QDir(stdPath).absoluteFilePath(QString::number(m_itemID).append(".png").prepend("Dressr/"));
     m_image.save(filename);
 

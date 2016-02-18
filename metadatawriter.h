@@ -3,18 +3,24 @@
 
 #include "closet.h"
 
+#include <QWidget>
 #include <QString>
 
-class MetaDataWriter
+class MetaDataWriter : public QWidget
 {
+    Q_OBJECT
 public:
     MetaDataWriter();
-    ~MetaDataWriter() {};
+    ~MetaDataWriter() {}
     void load(Closet &clst);
-    void save(Closet &clst);
+
+public slots:
+    void save();
 
 private:
     QString m_filename;
+    Closet * m_closet;
+
 };
 
 #endif // METADATAWRITER_H
