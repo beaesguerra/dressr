@@ -6,6 +6,7 @@
 #include "clothingitem.h"
 #include <vector>
 #include <string>
+#include "PickUi.h"
 
 using namespace std;
 
@@ -13,7 +14,7 @@ class WardrobePicker
 {
 public:
     WardrobePicker(Closet * closet);
-    Outfit randomizeOutfit();
+    void randomizeOutfit();
     /**
       Returns a ClothingItem with an itemID of -1 if no items of the same type are present
      */
@@ -23,6 +24,7 @@ public:
 private:
 //    vector <unsigned int> m_rejectedItems;
     Closet * m_closet;
+    PickUi * m_pickUi;
 };
 
 #endif // WARDROBEPICKER_H

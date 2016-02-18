@@ -15,6 +15,11 @@ AddClothesConfirmationUi::AddClothesConfirmationUi()
 
     connect(ui->denyButton, SIGNAL(clicked()),
             this, SLOT(itemRejected()));
+
+
+    ui->categoryComboBox->addItem(QString::fromStdString("Top"));
+    ui->categoryComboBox->addItem(QString::fromStdString("Bottom"));
+
 }
 
 AddClothesConfirmationUi::~AddClothesConfirmationUi()
@@ -23,7 +28,7 @@ AddClothesConfirmationUi::~AddClothesConfirmationUi()
 
 void AddClothesConfirmationUi::itemConfirmed()
 {
-    ClothingItem item(m_image, ui->comboBox->currentText().toStdString());
+    ClothingItem item(m_image, ui->categoryComboBox->currentText().toStdString());
 
     emit confirmItem(item);
 }

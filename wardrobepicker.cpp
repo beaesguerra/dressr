@@ -1,19 +1,22 @@
 #include "wardrobepicker.h"
 
-WardrobePicker::WardrobePicker(Closet * closet)
+WardrobePicker::WardrobePicker(Closet * closet, PickUi* pickUi)
 {
     m_closet = closet;
+    m_pickUi = pickUi;
 }
 
-Outfit WardrobePicker::randomizeOutfit()
+void WardrobePicker::randomizeOutfit()
 {
     vector <string> allTypes = m_closet->getTypes();
     vector <ClothingItem> outfit;
-    for(unsigned int i = 0; i < allTypes.size(); i++)
-    {
-        outfit.push_back(pickItem(allTypes.at(i)));
-    }
-    return Outfit(outfit);
+//    for(unsigned int i = 0; i < allTypes.size(); i++)
+//    {
+//        outfit.push_back(pickItem(allTypes.at(i)));
+//    }
+    outfit.push_back(pickItem("Top")); //currently supports only picking top and bottom
+    outfit.push_back(pickItem("Bottom"));
+    m_pickUi->showOutfit(outfit);
 }
 
 ClothingItem WardrobePicker::pickItem(const string type)
