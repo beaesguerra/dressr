@@ -17,8 +17,8 @@ ClothingItem::ClothingItem()
 ClothingItem::ClothingItem(QImage image, string type)
 {
     double screenWidth = QApplication::screens().at(0)->size().width();
-    m_image = image.scaled(screenWidth/2, screenWidth/2, Qt::KeepAspectRatio);
     m_thumbnail = image.scaled(screenWidth/3.3 - 20, screenWidth/3.3 - 20, Qt::KeepAspectRatio);
+    m_image = image.scaled(screenWidth/2, screenWidth/2, Qt::KeepAspectRatio);
     m_type = type;
     m_itemID = m_itemCounter;
     m_itemCounter++;
@@ -49,7 +49,8 @@ void ClothingItem::read(const QJsonObject &jObj)
     m_type = jObj["type"].toString().toStdString();
     m_image = QImage(jObj["img"].toString());
     m_itemID = jObj["id"].toInt();
-    m_thumbnail = m_image.scaled(768/3.3 - 20, 768/3.3 - 20, Qt::KeepAspectRatio);
+    double screenWidth = QApplication::screens().at(0)->size().width();
+    m_thumbnail = m_image.scaled(screenWidth/3.3 - 20, screenWidth/3.3 - 20, Qt::KeepAspectRatio);
     m_itemCounter++;
     if (m_itemCounter < m_itemID)
         m_itemCounter = m_itemID + 1;
