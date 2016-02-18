@@ -37,7 +37,8 @@ int main(int argc, char *argv[])
                      closetUi, SLOT(FilterSelected()));
     QWidget::connect(closet, SLOT(addItem(ClothingItem)),
                      closetUi, SLOT(FilterSelected()));
-
+    QWidget::connect(closet, SIGNAL(itemAdded(ClothingItem)),
+                     picker, SLOT(checkIfNoClothesOfType(ClothingItem)));
 
     mdWriter.load(*closet);
 

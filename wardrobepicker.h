@@ -19,6 +19,7 @@ public:
 
 public slots:
     void randomizeOutfit();
+    void checkIfNoClothesOfType(ClothingItem item);
 
 private:
     ClothingItem pickItem(string type);

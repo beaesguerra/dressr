@@ -14,6 +14,7 @@ Closet::Closet()
 void Closet::addItem(const ClothingItem item)
 {
     m_items.push_back(item);
+    emit itemAdded(item);
 }
 
 void Closet::removeItem(int itemID)

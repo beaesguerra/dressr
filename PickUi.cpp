@@ -82,7 +82,10 @@ void PickUi::showOutfit(Outfit anOutfit)
 }
 
 void PickUi::clearView() {
+    if (currentOutfit.size() == 0)
+        return;
     foreach(QLabel* clothingImage, currentOutfit){
         delete clothingImage;
     }
+    currentOutfit.clear();
 }
