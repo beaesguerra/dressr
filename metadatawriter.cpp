@@ -14,8 +14,8 @@
 MetaDataWriter::MetaDataWriter()
 {
 
-    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation)[0];
-//    QString stdPath = "/storage/emulated/0/data";
+//    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation)[0];
+    QString stdPath = "/storage/emulated/0/data";
     m_filename = QDir(stdPath).absoluteFilePath("Dressr/dressr.json");
 
     QString path = QDir(stdPath).absoluteFilePath("Dressr");
