@@ -25,7 +25,6 @@ int main(int argc, char *argv[])
 //    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation)[0];
 //    QString filename = QDir::currentPath().append("/shirt.jpg");
 
-
     for (int i = 0; i < 10; i++)
     {
         QImage shirtImage1 = QImage("/storage/emulated/0/data/testshirt.jpg");

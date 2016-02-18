@@ -29,6 +29,7 @@ ClosetUi::ClosetUi(Closet * closet)
     clothesContainerLayout->setColumnStretch(2, 1);
     clothesContainerLayout->setAlignment(Qt::AlignTop);
     this->closet = closet;
+    SetTypes(closet->getTypes());
     connect(ui->filters, SIGNAL(currentIndexChanged(QString)), this, SLOT(FilterSelected(QString)));
     FilterSelected(QString::fromStdString("All"));
 }
