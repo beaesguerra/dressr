@@ -34,6 +34,7 @@ public slots:
 
 signals:
     void deleteClothing(int itemId);
+    void deleteClothing();
 
 private:
     Ui::ClosetUi * ui;
