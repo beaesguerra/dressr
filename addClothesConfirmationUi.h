@@ -28,6 +28,11 @@ public slots:
     void itemConfirmed();
     void itemRejected();
 
+    void acceptPressed();
+    void acceptReleased();
+    void rejectPressed();
+    void rejectReleased();
+
 private:
     void getImage(QString path);
 

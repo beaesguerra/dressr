@@ -2,6 +2,8 @@
     <qresource prefix="/">
         <file>Resources/accept.png</file>
         <file>Resources/reject.png</file>
+        <file>Resources/accept-selected.png</file>
+        <file>Resources/reject-selected.png</file>
 	    <file>Resources/testshirt.jpg</file>
 	    <file>Resources/testpants.jpg</file>
 	</qresource>

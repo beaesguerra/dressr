@@ -181,6 +181,7 @@
       <string notr="true">#confirmationButtons QPushButton {
 	background: none;
 	border: none;
+	outline: 0;
 }</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
@@ -207,14 +208,15 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">outline: 0;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="icon">
          <iconset resource="resources.qrc">
-          <normaloff>:/Resources/accept.png</normaloff>:/Resources/accept.png</iconset>
+          <normaloff>:/Resources/accept.png</normaloff>
+          <activeoff>:/Resources/accept.png</activeoff>:/Resources/accept.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -254,7 +256,8 @@
         </property>
         <property name="icon">
          <iconset resource="resources.qrc">
-          <normaloff>:/Resources/reject.png</normaloff>:/Resources/reject.png</iconset>
+          <normaloff>:/Resources/reject.png</normaloff>
+          <activeoff>:/Resources/reject.png</activeoff>:/Resources/reject.png</iconset>
         </property>
         <property name="iconSize">
          <size>

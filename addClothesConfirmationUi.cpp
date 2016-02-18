@@ -21,9 +21,17 @@ AddClothesConfirmationUi::AddClothesConfirmationUi()
 
     connect(ui->confirmButton, SIGNAL(clicked()),
             this, SLOT(itemConfirmed()));
+    connect(ui->confirmButton, SIGNAL(pressed()),
+            this, SLOT(acceptPressed()));
+    connect(ui->confirmButton, SIGNAL(released()),
+            this, SLOT(acceptReleased()));
 
     connect(ui->denyButton, SIGNAL(clicked()),
             this, SLOT(itemRejected()));
+    connect(ui->denyButton, SIGNAL(pressed()),
+            this, SLOT(rejectPressed()));
+    connect(ui->denyButton, SIGNAL(released()),
+            this, SLOT(rejectReleased()));
 
 
     ui->categoryComboBox->addItem(QString::fromStdString("Top"));
@@ -104,4 +112,33 @@ void AddClothesConfirmationUi::setImage(QString path)
     }
 
     ui->clothesItem->layout()->addWidget(imageLabel);
+}
+
+
+void AddClothesConfirmationUi::acceptPressed()
+{
+    QPixmap pixmap = QPixmap(":/Resources/accept-selected.png");
+    QIcon icon = QIcon(pixmap);
+    ui->confirmButton->setIcon(icon);
+}
+
+void AddClothesConfirmationUi::acceptReleased()
+{
+    QPixmap pixmap = QPixmap(":/Resources/accept.png");
+    QIcon icon = QIcon(pixmap);
+    ui->confirmButton->setIcon(icon);
+}
+
+void AddClothesConfirmationUi::rejectPressed()
+{
+    QPixmap pixmap = QPixmap(":/Resources/reject-selected.png");
+    QIcon icon = QIcon(pixmap);
+    ui->denyButton->setIcon(icon);
+}
+
+void AddClothesConfirmationUi::rejectReleased()
+{
+    QPixmap pixmap = QPixmap(":/Resources/reject.png");
+    QIcon icon = QIcon(pixmap);
+    ui->denyButton->setIcon(icon);
 }
