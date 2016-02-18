@@ -3,6 +3,8 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QString>
+#include <QApplication>
+#include <QScreen>
 
 int ClothingItem::m_itemCounter = 0;
 
@@ -14,8 +16,9 @@ ClothingItem::ClothingItem()
 
 ClothingItem::ClothingItem(QImage image, string type)
 {
+    double screenWidth = QApplication::screens().at(0)->size().width();
     m_image = image;
-    m_thumbnail = image.scaled(768/3.3 - 20, 768/3.3 - 20, Qt::KeepAspectRatio);
+    m_thumbnail = image.scaled(screenWidth/3.3 - 20, screenWidth/3.3 - 20, Qt::KeepAspectRatio);
     m_type = type;
     m_itemID = m_itemCounter;
     m_itemCounter++;
