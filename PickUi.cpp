@@ -12,9 +12,18 @@
 PickUi::PickUi() 
 : ui(new Ui::PickUi)
 , touchStarted(false)
+, currentMessage(0)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_AcceptTouchEvents);
+
+    rejectionMessages.append("How about this outfit?");
+    rejectionMessages.append("What about this one?");
+    rejectionMessages.append("Is this one better?");
+    rejectionMessages.append("Do you like this?");
+    rejectionMessages.append("Is this okay?");
+
+    connect(this, SIGNAL(outfitRejected()), this, SLOT(rejectBackground()));
 }
 
 PickUi::~PickUi()
@@ -30,6 +39,10 @@ bool PickUi::event(QEvent *event)
     else if (event->type() == QEvent::TouchEnd){
         handleTouchEnd(static_cast<QTouchEvent*>(event));
     	return true;
+    }
+    else if (event->type() == QEvent::TouchUpdate){
+        handleTouchUpdate(static_cast<QTouchEvent*>(event));
+        return true;
     }
     return QWidget::event(event);
 }
@@ -60,9 +73,29 @@ void PickUi::handleTouchEnd(QTouchEvent* touch)
 			}
 			currentOutfit.clear();
 			emit outfitRejected();
-            ui->label->setStyleSheet("color: white");
+        }
+        else if(touchDelta.x() > ((this->width())/6) && (qAbs(touchDelta.y()) < qAbs(touchDelta.x()))){
+            ui->label->setText("I'm glad you like it!");
         }
 	}
+}
+
+void PickUi::handleTouchUpdate(QTouchEvent* touch)
+{
+
+    if(!touchStarted || touch->touchPoints().isEmpty()){
+        return;
+    }
+    else {
+        QPointF touchDelta = this->touchStart;
+        touchDelta -= touch->touchPoints().first().pos();
+
+        // Swiping right
+//        if (touchDelta.x() > 0)
+//            ui->outfitContainer->setStyleSheet("background-color: red");
+//        else // Swiping left
+//            ui->outfitContainer->setStyleSheet("background-color: green");
+    }
 }
 
 void PickUi::showOutfit(Outfit anOutfit)
@@ -77,8 +110,9 @@ void PickUi::showOutfit(Outfit anOutfit)
         imageLabel->setPixmap(*clothingImage);
 		
         currentOutfit.append(imageLabel);
-		ui->outfitContainer->layout()->addWidget(imageLabel);	
-	}
+        ui->outfitContainer->layout()->addWidget(imageLabel);
+        ui->outfitContainer->setStyleSheet("background-color: white");
+    }
 }
 
 void PickUi::clearView() {
@@ -88,4 +122,12 @@ void PickUi::clearView() {
         delete clothingImage;
     }
     currentOutfit.clear();
+}
+
+void PickUi::rejectBackground()
+{
+    ui->label->setText(rejectionMessages.at(currentMessage));
+    currentMessage++;
+    if (currentMessage >= rejectionMessages.length())
+        currentMessage = 0;
 }

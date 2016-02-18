@@ -29,13 +29,19 @@ private:
     bool touchStarted;
     QPointF touchStart;
     QList<QLabel*> currentOutfit;
+    QList<QString> rejectionMessages;
+    int currentMessage;
     void clearView();
 
     void handleTouchBegin(QTouchEvent* touch);
     void handleTouchEnd(QTouchEvent* touch);
+    void handleTouchUpdate(QTouchEvent* touch);
 
 signals:
 	void outfitRejected();
+
+public slots:
+    void rejectBackground();
 
 };
 
