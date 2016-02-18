@@ -14,8 +14,8 @@
 MetaDataWriter::MetaDataWriter()
 {
 
-//    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation)[0];
-    QString stdPath = "/storage/emulated/0/data";
+    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation)[0];
+//    QString stdPath = "/storage/emulated/0/data";
     m_filename = QDir(stdPath).absoluteFilePath("Dressr/dressr.json");
 
     QString path = QDir(stdPath).absoluteFilePath("Dressr");
@@ -23,7 +23,7 @@ MetaDataWriter::MetaDataWriter()
         QDir(path).mkpath(".");
 }
 
-void MetaDataWriter::save(Closet &clst)
+void MetaDataWriter::save()
 {
     QFile saveFile(m_filename);
     QJsonObject top, jsonClst;
@@ -34,7 +34,7 @@ void MetaDataWriter::save(Closet &clst)
         return;
     }
 
-    clst.write(jsonClst);
+    m_closet->write(jsonClst);
 
     top["Closet"] = jsonClst;
 
@@ -44,6 +44,7 @@ void MetaDataWriter::save(Closet &clst)
 
 void MetaDataWriter::load(Closet &clst)
 {
+    m_closet = &clst;
     QFile loadFile(m_filename);
     QJsonObject top;
 

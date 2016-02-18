@@ -20,8 +20,8 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MetaDataWriter mdWriter;
+    QApplication a (argc, argv);
+    MetaDataWriter * mdWriter = new MetaDataWriter();
     PickUi * pickUi = new PickUi();
     Closet * closet = new Closet();
     AddUi * addUi = new AddUi();
@@ -38,7 +38,11 @@ int main(int argc, char *argv[])
     QWidget::connect(closet, SIGNAL(itemAdded(ClothingItem)),
                      picker, SLOT(checkIfNoClothesOfType(ClothingItem)));
 
-    mdWriter.load(*closet);
+    QWidget::connect(&a, SIGNAL(aboutToQuit()), mdWriter, SLOT(save()));
+    QWidget::connect(&a, SIGNAL(saveStateRequest(QSessionManager&)), mdWriter, SLOT(save()));
+    QWidget::connect(&a, SIGNAL(applicationStateChanged(Qt::ApplicationState)), mdWriter, SLOT(save()));
+
+    mdWriter->load(*closet);
 
 
         closetUi->FilterSelected("All");
@@ -46,7 +50,5 @@ int main(int argc, char *argv[])
 
 
     w->show();
-    int flag = a.exec();
-    mdWriter.save(*closet);
-    return flag;
+    return a.exec();
 }

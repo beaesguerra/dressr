@@ -61,8 +61,8 @@ void ClothingItem::write(QJsonObject &jObj)
     jObj["type"] = QString::fromStdString(m_type);
     jObj["id"] = (int) m_itemID;
 
-//    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation)[0];
-    QString stdPath = "/storage/emulated/0/data";
+    QString stdPath = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation)[0];
+//    QString stdPath = "/storage/emulated/0/data";
     QString filename = QDir(stdPath).absoluteFilePath(QString::number(m_itemID).append(".png").prepend("Dressr/"));
     m_image.save(filename);
 
