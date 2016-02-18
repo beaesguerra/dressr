@@ -1,8 +1,8 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource>
-    <file>Resources/accept.png</file>
-    <file>Resources/reject.png</file>
-    <file>Resources/testshirt.jpg</file>
-    <file>Resources/testpants.jpg</file>
-</qresource>
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/accept.png</file>
+        <file>Resources/reject.png</file>
+	    <file>Resources/testshirt.jpg</file>
+	    <file>Resources/testpants.jpg</file>
+	</qresource>
 </RCC>

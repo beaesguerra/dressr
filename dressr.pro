@@ -22,13 +22,15 @@ SOURCES += main.cpp\
    outfit.cpp \
    PickUi.cpp \
    ClosetUi.cpp \
-   AddUi.cpp \
-    addClothesConfirmationUi.cpp
+    addClothesConfirmationUi.cpp \
+   ClothesContainer.cpp \
+   AddUi.cpp
 
 HEADERS  += \ 
     DressrUi.h \
     PickUi.h \
     ClosetUi.h \
+    ClothesContainer.h \
     metadatawriter.h \
     clothingitem.h \
     closet.h \

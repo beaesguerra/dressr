@@ -19,8 +19,11 @@ public:
    void read(const QJsonObject &jObj);
    void write(QJsonObject &jObj);
 
+   QImage getThumbnail();
+
 private:
    QImage m_image;
+   QImage m_thumbnail;
    string m_type;
    int m_itemID;
    static int m_itemCounter;
