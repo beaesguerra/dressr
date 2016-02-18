@@ -27,6 +27,7 @@ ClosetUi::ClosetUi(Closet * closet)
     clothesContainerLayout->setColumnStretch(0, 1);
     clothesContainerLayout->setColumnStretch(1, 1);
     clothesContainerLayout->setColumnStretch(2, 1);
+    clothesContainerLayout->setAlignment(Qt::AlignTop);
     this->closet = closet;
     connect(ui->filters, SIGNAL(currentIndexChanged(QString)), this, SLOT(FilterSelected(QString)));
     FilterSelected(QString::fromStdString("All"));
@@ -62,6 +63,7 @@ void ClosetUi::AddClothesToView(ClothingItem someClothing)
         columnCount = 0;
         rowCount++;
     }
+
 }
 
 void ClosetUi::ClearView() {
@@ -92,7 +94,6 @@ void ClosetUi::FilterSelected(QString filter)
         for(unsigned int i = 0; i < temp.size(); i++)
             AddClothesToView(temp.at(i));
     }
-   // clothesContainerLayout->setRowStretch(0, 3);
 }
 
 void ClosetUi::setScrollBar(double dy)

@@ -3,6 +3,10 @@
 
 #include "PickUi.h"
 #include "ClosetUi.h"
+#include "AddUi.h"
+#include "addClothesConfirmationUi.h"
+
+#include <QDebug>
 
 DressrUi::DressrUi()
 {
@@ -11,17 +15,34 @@ DressrUi::DressrUi()
 
 DressrUi::DressrUi(PickUi * pickUi, ClosetUi * closetUi)
 : ui(new Ui::DressrUi)
+, addUi(new AddUi)
+, addClothesConfirmation(new AddClothesConfirmationUi)
 {
     this->pickUi = pickUi;
     this->closetUi = closetUi;
     ui->setupUi(this);
     ui->stackedTabWidget->addWidget(pickUi);
     ui->stackedTabWidget->addWidget(closetUi);
+    ui->stackedTabWidget->addWidget(addUi);
+    ui->stackedTabWidget->addWidget(addClothesConfirmation);
 
     connect(ui->pickTab, SIGNAL(clicked()),
     		this, SLOT(pickTabClicked()));
     connect(ui->closetTab, SIGNAL(clicked()),
     		this, SLOT(closetTabClicked()));
+
+    connect(ui->addTab, SIGNAL(clicked()),
+            this, SLOT(addTabClicked()));
+
+    connect(addUi, SIGNAL(imageTaken(QString)),
+           this, SLOT(confirmClothes(QString)));
+
+    connect(addUi, SIGNAL(imageTaken(QString)),
+           addClothesConfirmation, SLOT(setImage(QString)));
+
+    connect(addClothesConfirmation, SIGNAL(rejectItem()),
+            this, SLOT(addTabClicked()));
+
 
 }
 
@@ -37,5 +58,16 @@ void DressrUi::pickTabClicked()
 void DressrUi::closetTabClicked()
 {
 	ui->stackedTabWidget->setCurrentWidget(closetUi);
+}
+
+void DressrUi::addTabClicked()
+{
+    ui->stackedTabWidget->setCurrentWidget(addUi);
+}
+
+void DressrUi::confirmClothes(QString path)
+{
+    qDebug() << path;
+    ui->stackedTabWidget->setCurrentWidget(addClothesConfirmation);
 }
 
