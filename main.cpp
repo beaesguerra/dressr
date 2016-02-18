@@ -39,7 +39,6 @@ int main(int argc, char *argv[])
                      picker, SLOT(checkIfNoClothesOfType(ClothingItem)));
 
     QWidget::connect(&a, SIGNAL(aboutToQuit()), mdWriter, SLOT(save()));
-    QWidget::connect(&a, SIGNAL(saveStateRequest(QSessionManager&)), mdWriter, SLOT(save()));
     QWidget::connect(&a, SIGNAL(applicationStateChanged(Qt::ApplicationState)), mdWriter, SLOT(save()));
 
     mdWriter->load(*closet);
