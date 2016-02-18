@@ -21,6 +21,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
     MetaDataWriter mdWriter;
     PickUi * pickUi = new PickUi();
     Closet * closet = new Closet();
