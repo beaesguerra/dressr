@@ -6,4 +6,4 @@ In this app, users are also able to:
 - Browse through suggested outfits by simply swiping right to view other outfits
 - Add clothing items to their closet by taking pictures of their clothes 
 - Remove clothes from their closet 
-- View the clothes in their closet by category
+- View the clothes in their closet by category (i.e., tops, bottoms)
